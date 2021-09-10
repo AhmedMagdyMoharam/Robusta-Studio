@@ -7,7 +7,7 @@
 
 import Foundation
 
-// usually use Swift Gen
+/// I usually use Swift Gen
 struct AppFonts {
     
     static let helvetica = "HelveticaNeue"

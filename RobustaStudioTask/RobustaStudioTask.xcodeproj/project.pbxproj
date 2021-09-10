@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		65D6668226EB161300E73050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6668126EB161300E73050 /* AppDelegate.swift */; };
-		65D6668626EB161300E73050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6668526EB161300E73050 /* ViewController.swift */; };
 		65D6668926EB161300E73050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668726EB161300E73050 /* Main.storyboard */; };
 		65D6668B26EB161500E73050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668A26EB161500E73050 /* Assets.xcassets */; };
 		65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668C26EB161500E73050 /* LaunchScreen.storyboard */; };
@@ -37,12 +36,16 @@
 		65D666D426EB265F00E73050 /* Collection+Handling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666D326EB265F00E73050 /* Collection+Handling.swift */; };
 		65D666DC26EB29A300E73050 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666DA26EB29A300E73050 /* RepositoryModel.swift */; };
 		65D666DD26EB29A300E73050 /* RepositoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666DB26EB29A300E73050 /* RepositoryVM.swift */; };
+		65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */; };
+		65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */; };
+		65D666E526EBBCD700E73050 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */; };
+		65D666E926EBCBF400E73050 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D666E826EBCBF400E73050 /* Home.storyboard */; };
+		65D666EB26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		65D6667E26EB161300E73050 /* RobustaStudioTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaStudioTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D6668126EB161300E73050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65D6668526EB161300E73050 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65D6668826EB161300E73050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65D6668A26EB161500E73050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65D6668D26EB161500E73050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +75,11 @@
 		65D666D326EB265F00E73050 /* Collection+Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Handling.swift"; sourceTree = "<group>"; };
 		65D666DA26EB29A300E73050 /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		65D666DB26EB29A300E73050 /* RepositoryVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryVM.swift; sourceTree = "<group>"; };
+		65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListView.swift; sourceTree = "<group>"; };
+		65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListVC.swift; sourceTree = "<group>"; };
+		65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
+		65D666E826EBCBF400E73050 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardsDesignSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +199,8 @@
 		65D666C126EB210700E73050 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				65D6668526EB161300E73050 /* ViewController.swift */,
+				65D666DE26EBBC3600E73050 /* Loading */,
+				65D666DF26EBBC4600E73050 /* Logged In */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				65D6668726EB161300E73050 /* Main.storyboard */,
+				65D666E826EBCBF400E73050 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -222,6 +232,7 @@
 				65D666CA26EB22BE00E73050 /* ColorsDesignSystem.swift */,
 				65D666CC26EB232800E73050 /* FontsDesignSystem.swift */,
 				65D666CE26EB235B00E73050 /* ImagesDesignSystem.swift */,
+				65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -233,6 +244,23 @@
 				65D666DB26EB29A300E73050 /* RepositoryVM.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		65D666DE26EBBC3600E73050 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		65D666DF26EBBC4600E73050 /* Logged In */ = {
+			isa = PBXGroup;
+			children = (
+				65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */,
+				65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */,
+				65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */,
+			);
+			path = "Logged In";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D666B826EB1BFE00E73050 /* ToastView.xib in Resources */,
+				65D666E926EBCBF400E73050 /* Home.storyboard in Resources */,
 				65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */,
 				65D6668B26EB161500E73050 /* Assets.xcassets in Resources */,
 				65D6668926EB161300E73050 /* Main.storyboard in Resources */,
@@ -309,7 +338,7 @@
 				65D666A826EB17FA00E73050 /* BaseResponse.swift in Sources */,
 				65D666DC26EB29A300E73050 /* RepositoryModel.swift in Sources */,
 				65D666CD26EB232800E73050 /* FontsDesignSystem.swift in Sources */,
-				65D6668626EB161300E73050 /* ViewController.swift in Sources */,
+				65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */,
 				65D666BE26EB1CF100E73050 /* UIView+Border.swift in Sources */,
 				65D666A426EB17FA00E73050 /* RepositoryProvider.swift in Sources */,
 				65D6668226EB161300E73050 /* AppDelegate.swift in Sources */,
@@ -317,9 +346,12 @@
 				65D666A526EB17FA00E73050 /* RepositoryNetworking.swift in Sources */,
 				65D666AB26EB1A5000E73050 /* AppStateManager.swift in Sources */,
 				65D666B026EB1B8900E73050 /* LoadingSpinnerManager.swift in Sources */,
+				65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */,
 				65D666A726EB17FA00E73050 /* TargetType.swift in Sources */,
 				65D666C026EB1D5C00E73050 /* UINavigation+Transparent.swift in Sources */,
 				65D6669826EB16F700E73050 /* CombineHelper.swift in Sources */,
+				65D666E526EBBCD700E73050 /* RepositoriesListViewModel.swift in Sources */,
+				65D666EB26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift in Sources */,
 				65D666DD26EB29A300E73050 /* RepositoryVM.swift in Sources */,
 				65D666CB26EB22BE00E73050 /* ColorsDesignSystem.swift in Sources */,
 				65D666CF26EB235B00E73050 /* ImagesDesignSystem.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-// usually use Swift Gen
+/// I usually use Swift Gen
 struct ImagesDesignSystem {
     
     enum backGroundImage: String {
@@ -18,3 +18,5 @@ struct ImagesDesignSystem {
         }
     }
 }
+
+
