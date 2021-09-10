@@ -13,6 +13,8 @@ struct ColorDesignSystem {
     enum Colors: String {
         // App Colors
         case white = "White"
+        case appRed = "WellRead"
+        case appLightGray = "Gallery"
         
         // Toast Colors
         case bittersweet = "Bittersweet"

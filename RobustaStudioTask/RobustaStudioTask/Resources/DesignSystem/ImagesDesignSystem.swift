@@ -11,7 +11,8 @@ import UIKit
 struct ImagesDesignSystem {
     
     enum backGroundImage: String {
-        case firstBGImage = "First_bg"
+        //Landing Page
+        case loadingPagePlaceHolder = "LoadingPlaceHolder"
         
         var image: UIImage {
             return UIImage(named: self.rawValue) ?? UIImage()

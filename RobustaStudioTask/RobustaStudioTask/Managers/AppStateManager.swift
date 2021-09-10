@@ -22,6 +22,7 @@ protocol AppStateManagerProtocol {
 }
 
 class AppStateManager {
+    
     //MARK:- Private Properties
     private var appDelegate: AppDelegateProtocol!
     private var transitionAnimationDuration: Float = 0.2
@@ -47,9 +48,12 @@ class AppStateManager {
     
     //MARK:- Methods
     private func handleLoggedIn() {
+        switchRootWithAnimation(toVC: RepositoriesListVC.create(viewModel: RepositoriesListViewModel(provider: RepositoryProvider(networkRequest: NativeRequitable()))))
     }
     
     private func handleLoading() {
+        let vc = LoadingVC.create()
+        self.mainWindow?.rootViewController = vc
     }
     
     private func switchRootWithAnimation(toVC: UIViewController) {

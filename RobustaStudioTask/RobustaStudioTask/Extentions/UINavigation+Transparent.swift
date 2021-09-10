@@ -28,7 +28,7 @@ extension UINavigationController {
         self.view.backgroundColor = .clear
     }
     
-    func titleFontAndSize(font: UIFont = UIFont(name: AppFonts.helvetica, size: 22) ?? UIFont()){
+    func titleFontAndSize(font: UIFont = UIFont(name: AppFonts.regularHelvetica, size: 22) ?? UIFont()){
         let attributes = [NSAttributedString.Key.font: font]
         UINavigationBar.appearance().titleTextAttributes = attributes
     }

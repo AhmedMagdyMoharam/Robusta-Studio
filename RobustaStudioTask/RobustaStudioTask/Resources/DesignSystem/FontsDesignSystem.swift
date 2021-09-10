@@ -10,6 +10,7 @@ import Foundation
 /// I usually use Swift Gen
 struct AppFonts {
     
-    static let helvetica = "HelveticaNeue"
+    static let regularHelvetica = "HelveticaNeue"
+    static let boldHelvetica = "HelveticaNeue-Bold"
     
 }
