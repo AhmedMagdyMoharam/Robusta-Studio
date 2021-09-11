@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="etE-uX-qf6">
-                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EZE-0w-0Hm">
@@ -35,7 +35,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JPm-eW-mp5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-jM-Wuf" customClass="ZeroStateView" customModule="RobustaStudioTask" customModuleProvider="target">
@@ -45,6 +45,24 @@
                                     <constraint firstAttribute="height" constant="200" id="YU0-61-7js"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OwN-uh-zZe">
+                                <rect key="frame" x="7" y="59" width="400" height="45"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QYt-Wf-5WN">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="2wM-cF-UC4"/>
+                                            <constraint firstAttribute="width" constant="35" id="uDR-Cy-0b2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-Bw-Fne">
+                                        <rect key="frame" x="45" y="0.0" width="355" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,12 +73,17 @@
                             <constraint firstItem="Nec-jM-Wuf" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="8aW-Vl-qQs"/>
                             <constraint firstItem="etE-uX-qf6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Bam-Nu-Sm2"/>
                             <constraint firstItem="etE-uX-qf6" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="EZ2-47-G1a"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OwN-uh-zZe" secondAttribute="trailing" constant="7" id="PGT-N6-qfp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nec-jM-Wuf" secondAttribute="trailing" constant="20" id="ZHm-Kw-p0G"/>
-                            <constraint firstItem="JPm-eW-mp5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nc7-SU-GEk"/>
+                            <constraint firstItem="JPm-eW-mp5" firstAttribute="top" secondItem="OwN-uh-zZe" secondAttribute="bottom" id="bBL-XV-JXg"/>
+                            <constraint firstItem="OwN-uh-zZe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="7" id="m7W-8J-AeH"/>
                             <constraint firstItem="Nec-jM-Wuf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="rU7-E6-Jvd"/>
+                            <constraint firstItem="OwN-uh-zZe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="wIv-5z-pJT"/>
                             <constraint firstItem="JPm-eW-mp5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yKO-hO-0iH"/>
                         </constraints>
                         <connections>
+                            <outlet property="pageTitle" destination="2QF-Bw-Fne" id="CSC-pB-7MY"/>
+                            <outlet property="repoIcon" destination="QYt-Wf-5WN" id="Utc-tJ-1gD"/>
                             <outlet property="repositoryTableView" destination="etE-uX-qf6" id="Cc1-Xk-kyT"/>
                             <outlet property="searchBar" destination="JPm-eW-mp5" id="1cY-vw-4PZ"/>
                             <outlet property="zeroStateView" destination="Nec-jM-Wuf" id="fSh-dg-dD2"/>

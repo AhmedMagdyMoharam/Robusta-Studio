@@ -49,6 +49,8 @@
 		65D666F826EC3C8D00E73050 /* ZeroStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F726EC3C8D00E73050 /* ZeroStateView.swift */; };
 		65D666FC26EC4B3000E73050 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666FA26EC4B3000E73050 /* RepositoryCell.swift */; };
 		65D666FD26EC4B3000E73050 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D666FB26EC4B3000E73050 /* RepositoryCell.xib */; };
+		65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */; };
+		65D6670126EC6CCB00E73050 /* TableViewCellsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		65D666F726EC3C8D00E73050 /* ZeroStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateView.swift; sourceTree = "<group>"; };
 		65D666FA26EC4B3000E73050 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		65D666FB26EC4B3000E73050 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
+		65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NativeLoadImage + Caching.swift"; sourceTree = "<group>"; };
+		65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellsAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				65D666AF26EB1B8900E73050 /* LoadingSpinnerManager.swift */,
 				65D666F226EBE74C00E73050 /* WorkItemManager.swift */,
 				65D666D126EB261200E73050 /* HapticManager.swift */,
+				65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */,
 				65D666B226EB1BFE00E73050 /* ToastViewManager */,
 			);
 			path = Managers;
@@ -186,6 +191,7 @@
 				65D666A326EB17FA00E73050 /* BaseAPI.swift */,
 				65D666A126EB17FA00E73050 /* TargetType.swift */,
 				65D666A226EB17FA00E73050 /* BaseResponse.swift */,
+				65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				65D666DC26EB29A300E73050 /* RepositoryModel.swift in Sources */,
 				65D666CD26EB232800E73050 /* FontsDesignSystem.swift in Sources */,
 				65D666EF26EBCFCE00E73050 /* LoadingVC.swift in Sources */,
+				65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */,
 				65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */,
 				65D666F126EBCFD800E73050 /* LoadingView.swift in Sources */,
 				65D666BE26EB1CF100E73050 /* UIView+Border.swift in Sources */,
@@ -410,6 +417,7 @@
 				65D666F326EBE74C00E73050 /* WorkItemManager.swift in Sources */,
 				65D6669A26EB17BB00E73050 /* Constants.swift in Sources */,
 				65D666ED26EBCF9300E73050 /* UILabel+Animation.swift in Sources */,
+				65D6670126EC6CCB00E73050 /* TableViewCellsAnimation.swift in Sources */,
 				65D666A926EB17FA00E73050 /* BaseAPI.swift in Sources */,
 				65D666D426EB265F00E73050 /* Collection+Handling.swift in Sources */,
 			);

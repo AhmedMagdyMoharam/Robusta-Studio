@@ -16,6 +16,8 @@ class RepositoriesListVC: UIViewController {
     
     //MARK: - Properties
     private var subscriptions = Set<AnyCancellable>()
+    private var shownIndexes: [IndexPath] = [] // used for cells animation
+    private var refreshControl = UIRefreshControl()
     private var viewModel: RepositoriesListViewModelProtocol?
     private var repoList: [RepositoryVMProtocol] {
         viewModel?.reposList.value ?? []
@@ -42,6 +44,7 @@ class RepositoriesListVC: UIViewController {
     private func setup() {
         guard let viewModel = viewModel else { return }
         setupBindings()
+        pullToRefresh()
         viewModel.LoadRepositoriesList()
     }
     
@@ -72,6 +75,21 @@ class RepositoriesListVC: UIViewController {
     }
 }
 
+//MARK: - pull To refresh Configurations
+extension RepositoriesListVC {
+    private func pullToRefresh() {
+        refreshControl.tintColor = ColorDesignSystem.Colors.black.color
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        mainView.repositoryTableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        viewModel?.LoadRepositoriesList()
+        shownIndexes.removeAll()
+        refreshControl.endRefreshing()
+    }
+}
+
 
 //MARK: - TableView Configurations
 extension RepositoriesListVC: UITableViewDelegate, UITableViewDataSource {
@@ -87,10 +105,14 @@ extension RepositoriesListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
+        // Pagination
         let lastElement = repoList.count - 1
-        print(lastElement)
-        if indexPath.row == lastElement {
-            viewModel.loadRepoDataIfNeeded(shouldClear: false)
+        if indexPath.row == lastElement { viewModel.loadRepoDataIfNeeded(shouldClear: false) }
+        
+        // Cell Animation
+        if !shownIndexes.contains(indexPath) {
+            TableViewCellsAnimation.shared.animate(cell)
+            shownIndexes.append(indexPath)
         }
     }
     

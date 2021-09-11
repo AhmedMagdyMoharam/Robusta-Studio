@@ -8,9 +8,9 @@
 import UIKit
 
 class RepositoryCell: UITableViewCell {
-
+    
     //MARK: - Outlets
-    @IBOutlet weak var ownerAvatar: UIImageView!
+    @IBOutlet weak var ownerAvatar: ImageLoader!
     @IBOutlet weak var repoName: UILabel!
     @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var repoTypeImage: UIImageView!
@@ -48,8 +48,16 @@ class RepositoryCell: UITableViewCell {
     
     private func fetchRepoData() {
         guard let data = data else { return }
+        //bodySetup
         repoName.text = data.name
         ownerName.text = data.owner?.ownerName
         data.owner?.type == .organization ? (repoOwnerType.text = "Organization") : (repoOwnerType.text = "User")
+        
+        // user avatar
+        if let url = URL(string: data.owner?.avatarURL ?? "") {
+            ownerAvatar.loadImageWithUrl(url)
+        } else {
+            ownerAvatar.image = ImagesDesignSystem.backGroundImage.userPlaceHolder.image
+        }
     }
 }

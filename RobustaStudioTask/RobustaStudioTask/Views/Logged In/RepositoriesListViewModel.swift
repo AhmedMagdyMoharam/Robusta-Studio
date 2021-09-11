@@ -51,9 +51,9 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
     }
     
     //MARK: - Methods
-    
     func loadRepoDataIfNeeded(shouldClear: Bool) {
         if splitReposLists.count >= page {
+            print("Page is:", page)
             let newPageData = splitReposLists[page - 1]
             if shouldClear { page = 1 }
             page == 1 && newPageData.isEmpty == true ? (self.state.send(.zeroState(show: true))) : (self.state.send(.zeroState(show: false)))
@@ -67,6 +67,7 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
         self.state.send(.loading(true))
         let responseHandler: (([RepositoryModel]) -> Void) = { [weak self] response in
             guard let self = self else { return }
+            self.reposList.value.removeAll()
             self.bulkedReposList = (response).map {RepositoryVM(repo: $0) }
             self.splitReposLists = self.bulkedReposList.chunked(by: self.pageLimit)
             self.loadRepoDataIfNeeded(shouldClear: true)
