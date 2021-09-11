@@ -49,6 +49,7 @@
 		65D666FD26EC4B3000E73050 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D666FB26EC4B3000E73050 /* RepositoryCell.xib */; };
 		65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */; };
 		65D6670126EC6CCB00E73050 /* TableViewCellsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */; };
+		65D6670426EC9BA600E73050 /* AnimationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670326EC9BA600E73050 /* AnimationUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		65D666FB26EC4B3000E73050 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NativeLoadImage + Caching.swift"; sourceTree = "<group>"; };
 		65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellsAnimation.swift; sourceTree = "<group>"; };
+		65D6670326EC9BA600E73050 /* AnimationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				65D666AF26EB1B8900E73050 /* LoadingSpinnerManager.swift */,
 				65D666D126EB261200E73050 /* HapticManager.swift */,
 				65D6670026EC6CCB00E73050 /* TableViewCellsAnimation.swift */,
+				65D6670326EC9BA600E73050 /* AnimationUtility.swift */,
 				65D666B226EB1BFE00E73050 /* ToastViewManager */,
 			);
 			path = Managers;
@@ -392,6 +395,7 @@
 				65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */,
 				65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */,
 				65D666F126EBCFD800E73050 /* LoadingView.swift in Sources */,
+				65D6670426EC9BA600E73050 /* AnimationUtility.swift in Sources */,
 				65D666BE26EB1CF100E73050 /* UIView+Border.swift in Sources */,
 				65D666A426EB17FA00E73050 /* RepositoryProvider.swift in Sources */,
 				65D6668226EB161300E73050 /* AppDelegate.swift in Sources */,

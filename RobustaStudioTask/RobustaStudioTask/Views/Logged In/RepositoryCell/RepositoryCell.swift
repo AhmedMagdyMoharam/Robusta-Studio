@@ -40,8 +40,8 @@ class RepositoryCell: UITableViewCell {
         ownerAvatar.contentMode = .scaleToFill
         
         //bodySetup
-        repoName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 14) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color)
-        ownerName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
+        repoName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color)
+        ownerName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 14) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
         repoOwnerType.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
         repoTypeImage.image = ImagesDesignSystem.backGroundImage.repoTypeIcon.image
     }

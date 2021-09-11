@@ -50,10 +50,11 @@ class LoadingView: UIView {
     private func showGitHubIcon() {
         DispatchQueue.main.asyncAfter(deadline: .now() + showIconDelayValue) { [ weak self ] in
             guard let self = self else { return }
-            UIView.animate(withDuration: 0.7) { [ weak self ] in
+            UIView.animate(withDuration: 0.8) { [ weak self ] in
                 guard let self = self else { return }
                 self.gitHubIcon.alpha = 1
             }
+            AnimationUtility.shared.viewSlideIn(view: self.gitHubIcon, direction: .fromBottom, CAMediaTimingFunctionName: .easeOut, kSlideAnimationDuration: 0.4)
         }
     }
 }
