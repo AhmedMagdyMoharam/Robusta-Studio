@@ -120,8 +120,3 @@ class OwnerModel: Codable {
         case siteAdmin = "site_admin"
     }
 }
-//
-//enum TypeEnum: String, Codable {
-//    case organization = "Organization"
-//    case user = "User"
-//}

@@ -46,6 +46,7 @@ class RepositoriesListView: UIView {
         repositoryTableView.separatorStyle = .none
         repositoryTableView.showsVerticalScrollIndicator = false
         repositoryTableView.showsHorizontalScrollIndicator = false
+        repositoryTableView.register(UINib(nibName: "\(RepositoryCell.self)", bundle: nil), forCellReuseIdentifier: "\(RepositoryCell.self)")
     }
     
     private func zeroStateSetup() {

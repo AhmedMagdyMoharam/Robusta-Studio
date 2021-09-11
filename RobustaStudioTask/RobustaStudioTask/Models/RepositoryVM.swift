@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum OwnerType: String {
+    case user = "User"
+    case organization = "Organization"
+}
 
 protocol RepositoryVMProtocol {
     var id: Int? { get }
@@ -14,7 +18,7 @@ protocol RepositoryVMProtocol {
     var name: String? { get }
     var fullName: String? { get }
     var topicPrivate: Bool? { get }
-    var owner: OwnerModel? { get }
+    var owner: OwnerVMProtocol? { get }
     var htmlURL: String? { get }
     var topicDescription: String? { get }
     var fork: Bool? { get }
@@ -82,8 +86,8 @@ class RepositoryVM: RepositoryVMProtocol {
     var topicPrivate: Bool?{
         repo.topicPrivate
     }
-    var owner: OwnerModel?{
-        repo.owner
+    var owner: OwnerVMProtocol?{
+        OwnerVM(owner: repo.owner)
     }
     var htmlURL: String?{
         repo.htmlURL
@@ -204,5 +208,93 @@ class RepositoryVM: RepositoryVMProtocol {
     }
     var deploymentsURL: String?{
         repo.deploymentsURL
+    }
+}
+
+
+protocol OwnerVMProtocol {
+    var ownerName: String? { get }
+    var id: Int? { get }
+    var nodeID: String? { get }
+    var avatarURL: String? { get }
+    var gravatarID: String? { get }
+    var url: String? { get }
+    var htmlURL: String? { get }
+    var followingURL: String? { get }
+    var followersURL: String? { get }
+    var gistsURL: String? { get }
+    var starredURL: String? { get }
+    var organizationsURL: String? { get }
+    var reposURL: String? { get }
+    var subscriptionsURL: String? { get }
+    var eventsURL: String? { get }
+    var receivedEventsURL: String? { get }
+    var type: OwnerType? { get }
+    var siteAdmin: Bool? { get }
+}
+
+class OwnerVM: OwnerVMProtocol {
+    
+    //MARK: - Proberties
+    let owner: OwnerModel?
+    
+    //MARK: - Init
+    init(owner: OwnerModel?) {
+        self.owner = owner
+    }
+    
+    var ownerName: String? {
+        owner?.login
+    }
+    var id: Int? {
+        owner?.id
+    }
+    var nodeID: String? {
+        owner?.nodeID
+    }
+    var avatarURL: String? {
+        owner?.avatarURL
+    }
+    var gravatarID: String? {
+        owner?.gravatarID
+    }
+    var url: String? {
+        owner?.url
+    }
+    var htmlURL: String? {
+        owner?.htmlURL
+    }
+    var followingURL: String? {
+        owner?.followingURL
+    }
+    var followersURL: String? {
+        owner?.followersURL
+    }
+    var gistsURL: String? {
+        owner?.gistsURL
+    }
+    var starredURL: String? {
+        owner?.starredURL
+    }
+    var organizationsURL: String? {
+        owner?.organizationsURL
+    }
+    var reposURL: String? {
+        owner?.reposURL
+    }
+    var subscriptionsURL: String? {
+        owner?.subscriptionsURL
+    }
+    var eventsURL: String? {
+        owner?.eventsURL
+    }
+    var receivedEventsURL: String? {
+        owner?.receivedEventsURL
+    }
+    var type: OwnerType? {
+        OwnerType(rawValue: owner?.type ?? "")
+    }
+    var siteAdmin: Bool? {
+        owner?.siteAdmin
     }
 }

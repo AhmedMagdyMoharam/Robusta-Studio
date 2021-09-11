@@ -14,6 +14,7 @@ struct ImagesDesignSystem {
         //Landing Page
         case loadingPagePlaceHolder = "LoadingPlaceHolder"
         case zeroStateRepos = "ZeroStateRepos"
+        case repoTypeIcon = "RepoTypeIcon"
         
         
         var image: UIImage {

@@ -47,6 +47,8 @@
 		65D666F326EBE74C00E73050 /* WorkItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F226EBE74C00E73050 /* WorkItemManager.swift */; };
 		65D666F626EC3C6600E73050 /* ZeroStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D666F526EC3C6600E73050 /* ZeroStateView.xib */; };
 		65D666F826EC3C8D00E73050 /* ZeroStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F726EC3C8D00E73050 /* ZeroStateView.swift */; };
+		65D666FC26EC4B3000E73050 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666FA26EC4B3000E73050 /* RepositoryCell.swift */; };
+		65D666FD26EC4B3000E73050 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D666FB26EC4B3000E73050 /* RepositoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		65D666F226EBE74C00E73050 /* WorkItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemManager.swift; sourceTree = "<group>"; };
 		65D666F526EC3C6600E73050 /* ZeroStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateView.xib; sourceTree = "<group>"; };
 		65D666F726EC3C8D00E73050 /* ZeroStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateView.swift; sourceTree = "<group>"; };
+		65D666FA26EC4B3000E73050 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		65D666FB26EC4B3000E73050 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,7 @@
 				65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */,
 				65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */,
 				65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */,
+				65D666F926EC4AFC00E73050 /* RepositoryCell */,
 			);
 			path = "Logged In";
 			sourceTree = "<group>";
@@ -287,6 +292,15 @@
 				65D666F726EC3C8D00E73050 /* ZeroStateView.swift */,
 			);
 			path = ReusableComponents;
+			sourceTree = "<group>";
+		};
+		65D666F926EC4AFC00E73050 /* RepositoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D666FA26EC4B3000E73050 /* RepositoryCell.swift */,
+				65D666FB26EC4B3000E73050 /* RepositoryCell.xib */,
+			);
+			path = RepositoryCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D666F626EC3C6600E73050 /* ZeroStateView.xib in Resources */,
+				65D666FD26EC4B3000E73050 /* RepositoryCell.xib in Resources */,
 				65D666B826EB1BFE00E73050 /* ToastView.xib in Resources */,
 				65D666E926EBCBF400E73050 /* Home.storyboard in Resources */,
 				65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */,
@@ -377,6 +392,7 @@
 				65D666AB26EB1A5000E73050 /* AppStateManager.swift in Sources */,
 				65D666B026EB1B8900E73050 /* LoadingSpinnerManager.swift in Sources */,
 				65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */,
+				65D666FC26EC4B3000E73050 /* RepositoryCell.swift in Sources */,
 				65D666A726EB17FA00E73050 /* TargetType.swift in Sources */,
 				65D666C026EB1D5C00E73050 /* UINavigation+Transparent.swift in Sources */,
 				65D6669826EB16F700E73050 /* CombineHelper.swift in Sources */,
