@@ -48,7 +48,10 @@ class AppStateManager {
     
     //MARK:- Methods
     private func handleLoggedIn() {
-        switchRootWithAnimation(toVC: RepositoriesListVC.create(viewModel: RepositoriesListViewModel(provider: RepositoryProvider(networkRequest: NativeRequitable()))))
+        let vc = RepositoriesListVC.create(viewModel: RepositoriesListViewModel(provider: RepositoryProvider(networkRequest: NativeRequitable())))
+        let nav = UINavigationController(rootViewController: vc)
+        nav.addColorWithBackImage(image: ImagesDesignSystem.images.back.image, color: ColorDesignSystem.Colors.white.color)
+        switchRootWithAnimation(toVC: nav)
     }
     
     private func handleLoading() {

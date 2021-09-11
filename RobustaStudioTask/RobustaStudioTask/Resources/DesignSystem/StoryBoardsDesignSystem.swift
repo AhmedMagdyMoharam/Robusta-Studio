@@ -13,6 +13,7 @@ struct StoryBoardDesignSystem {
     enum StoryBoard: String {
         case main = "Main"
         case home = "Home"
+        case repoDescription = "RepoDescription"
         
         var name: UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: .none)

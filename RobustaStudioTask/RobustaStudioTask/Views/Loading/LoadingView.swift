@@ -36,13 +36,13 @@ class LoadingView: UIView {
         companyName.setTextWithTypeAnimation(typedText: "Robusta Repos", characterDelay: characterDelayValue)
         
         //Icon
-        gitHubIcon.image = ImagesDesignSystem.backGroundImage.gitHubIcon.image
+        gitHubIcon.image = ImagesDesignSystem.images.gitHubIcon.image
         gitHubIcon.contentMode = .scaleAspectFit
         gitHubIcon.alpha = 0
         showGitHubIcon()
         
         //BackGround image
-        bgImage.image = ImagesDesignSystem.backGroundImage.loadingPagePlaceHolder.image
+        bgImage.image = ImagesDesignSystem.images.loadingPagePlaceHolder.image
         bgImage.contentMode = .scaleToFill
         bgImage.alpha = ImageAlpha
     }

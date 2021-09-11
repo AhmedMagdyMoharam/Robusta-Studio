@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // override Dark Mode
+        // Swizzle
+        UIViewController.swizzleViewDidLoad()
+        // Dark Mode
         window?.overrideUserInterfaceStyle = .light
         
         // Start App

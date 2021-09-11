@@ -35,7 +35,7 @@ class RepositoriesListVC: UIViewController {
         setup()
     }
     //MARK: - Methods
-    class func create(viewModel: RepositoriesListViewModel) -> RepositoriesListVC {
+    class func create(viewModel: RepositoriesListViewModelProtocol) -> RepositoriesListVC {
         /// I usually use Swift Gen (fonts, images, storyboards)
         let vc: RepositoriesListVC = StoryBoardDesignSystem.StoryBoard.home.name.instantiateViewController(identifier: "\(RepositoriesListVC.self)")
         vc.viewModel = viewModel
@@ -44,6 +44,7 @@ class RepositoriesListVC: UIViewController {
     
     private func setup() {
         guard let viewModel = viewModel else { return }
+        self.navigationItem.addTitle(with: ImagesDesignSystem.images.homeHeaderImage.image)
         // Base Setup
         setupBindings()
         // load to refresh
@@ -58,10 +59,10 @@ class RepositoriesListVC: UIViewController {
         guard let viewModel = viewModel else { return }
         // Repo List
         viewModel.reposList
-            .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [ weak self ] in
-                guard let self = self, !$0.isEmpty else { return }
+            .dropFirst()
+            .sink { [ weak self ] _ in
+                guard let self = self else { return }
                 self.mainView.repositoryTableView.reloadData()
             }.store(in: &subscriptions)
         
@@ -82,7 +83,7 @@ class RepositoriesListVC: UIViewController {
                 guard let self = self else { return }
                 switch $0 {
                 case let .loading(show):
-                    show ? LoadingSpinnerManager.shared.showGeneral() : LoadingSpinnerManager.shared.hide()
+                    show ? self.mainView.repositoryTableView.startImbeddedLoading() : self.mainView.repositoryTableView.stopImbeddedLoading()
                 case let .showMessage(message, state):
                     ToastManager.shared.showError(message: message, status: state)
                 case let.zeroState(show):
@@ -137,12 +138,14 @@ extension RepositoriesListVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == lastElement { viewModel.loadRepoDataIfNeeded(shouldClear: false) }
         // Cell Animation
         if !shownIndexes.contains(indexPath) {
-            TableViewCellsAnimation.shared.animate(cell)
+            AnimationUtility.shared.animate(cell)
             shownIndexes.append(indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = RepoDescriptionVC.create(viewModel: RepoDescriptionViewModel(provider: RepositoryProvider(networkRequest: NativeRequitable()), repoData: reposList[exist: indexPath.row], pageType: .comments))
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

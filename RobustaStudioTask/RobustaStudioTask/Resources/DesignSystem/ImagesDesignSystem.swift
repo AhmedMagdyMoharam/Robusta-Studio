@@ -10,7 +10,7 @@ import UIKit
 /// I usually use Swift Gen (fonts, images, storyboards)
 struct ImagesDesignSystem {
     
-    enum backGroundImage: String {
+    enum images: String {
         //Landing Page
         case loadingPagePlaceHolder = "LoadingPlaceHolder"
         case zeroStateRepos = "ZeroStateRepos"
@@ -18,6 +18,12 @@ struct ImagesDesignSystem {
         case userPlaceHolder = "UserPlaceHolder"
         case repoIcon = "RepoIcon"
         case gitHubIcon = "GitHubIcon"
+        case forkIcon = "Fork"
+        case privateIcon = "Private"
+        case publicIcon = "Public"
+        case back = "Back"
+        case homeHeaderImage = "HomeHeaderImage"
+        case locationIcon = "LocationIcon"
         
         var image: UIImage {
             return UIImage(named: self.rawValue) ?? UIImage()

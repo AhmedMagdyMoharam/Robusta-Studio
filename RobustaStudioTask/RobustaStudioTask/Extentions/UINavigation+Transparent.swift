@@ -33,3 +33,11 @@ extension UINavigationController {
         UINavigationBar.appearance().titleTextAttributes = attributes
     }
 }
+
+extension UINavigationItem {
+    func addTitle(with image: UIImage) {
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: 144, height: 24)
+        self.titleView = imageView
+    }
+}

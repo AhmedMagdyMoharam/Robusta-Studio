@@ -41,7 +41,7 @@ class ZeroStateView: UIView {
         zeroStateBody.textAlignment = .center
     }
     
-    func customSetup(title: String, body: String?, icon: UIImage? = ImagesDesignSystem.backGroundImage.zeroStateRepos.image) {
+    func customSetup(title: String, body: String?, icon: UIImage? = ImagesDesignSystem.images.zeroStateRepos.image) {
         zeroStateTitle.text = title
         icon != nil ? (zeroStateIcon.image = icon) : (zeroStateIcon.isHidden = true)
         body != nil ? (zeroStateBody.text = body) : (zeroStateBody.isHidden = true)

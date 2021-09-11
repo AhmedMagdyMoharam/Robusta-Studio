@@ -10,6 +10,7 @@ import UIKit
 
 protocol AnimationUtilityProtocol {
     func viewSlideIn(view: UIView, direction: CATransitionSubtype, CAMediaTimingFunctionName: CAMediaTimingFunctionName, kSlideAnimationDuration: CFTimeInterval)
+    func animate(_ cell: UITableViewCell)
 }
 
 class AnimationUtility: UIViewController, CAAnimationDelegate, AnimationUtilityProtocol {
@@ -26,5 +27,17 @@ class AnimationUtility: UIViewController, CAAnimationDelegate, AnimationUtilityP
         transition?.type = CATransitionType.push
         transition?.subtype = direction
         view.layer.add(transition!, forKey: nil)
+    }
+    
+    func animate(_ cell: UITableViewCell) {
+        cell.transform = CGAffineTransform(translationX: 0, y: 55)
+        cell.layer.shadowColor = ColorDesignSystem.Colors.black.color.cgColor
+        cell.layer.shadowOffset = CGSize(width: 10, height: 10)
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            cell.alpha = 1
+            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        } completion: { _ in }
     }
 }

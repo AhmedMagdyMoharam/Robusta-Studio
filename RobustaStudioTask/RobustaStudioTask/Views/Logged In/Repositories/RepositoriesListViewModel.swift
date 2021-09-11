@@ -31,7 +31,7 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
     private var pageLimit = 10 // pagination limit 10 Row in page
     private var provider: RepositoryProviderProtocol?
     private var parentBulkReposList: [RepositoryVMProtocol] = [] // parent bulk data
-    private var localSearchList: [RepositoryVMProtocol] = []
+    private var filteredListData: [RepositoryVMProtocol] = []
     private var splitReposLists: [[RepositoryVMProtocol]] = [] //split array of data to pages by limit 10
     var reposList = CurrentValueSubject<[RepositoryVMProtocol], Never>([]) // final repo list
     var searchValue = CurrentValueSubject<String, Never>("") // search input value
@@ -56,29 +56,30 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
     //MARK: - Methods
     func loadRepoDataIfNeeded(shouldClear: Bool) {
         if shouldClear { page = 1 }
-        
-        !self.searchValue.value.isEmpty ? localSearch() : (localSearchList = parentBulkReposList)
-        splitReposLists = localSearchList.chunked(by: self.pageLimit)
+        !self.searchValue.value.isEmpty ? localSearch() : (filteredListData = parentBulkReposList)
+        splitReposLists = filteredListData.chunked(by: self.pageLimit)
         
         if splitReposLists.count >= page {
             print("Page is:", page)
             let newPageData = splitReposLists[page - 1]
-            page == 1 && newPageData.isEmpty == true ? (self.state.send(.zeroState(show: true))) : (self.state.send(.zeroState(show: false)))
+            self.state.send(.zeroState(show: false))
             shouldClear ? (reposList.value = newPageData) : (reposList.value += newPageData)
             page += 1
+        } else if splitReposLists.isEmpty {
+            reposList.value.removeAll()
+            state.send(.zeroState(show: true))
         }
     }
     
     // Local Search
     private func localSearch() {
-        self.localSearchList = self.parentBulkReposList.filter ({ userModel -> Bool in
-            (userModel.name?.lowercased().contains(searchValue.value.lowercased()))!
-        })
+        filteredListData = parentBulkReposList.filter({ $0.name?.lowercased().contains(searchValue.value.lowercased()) ?? false})
     }
     
     private func bindings() {
         searchValue
             .receive(on: DispatchQueue.main)
+            .dropFirst()
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.loadRepoDataIfNeeded(shouldClear: true)
@@ -91,7 +92,7 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
         let responseHandler: (([RepositoryModel]) -> Void) = { [weak self] response in
             guard let self = self else { return }
             self.parentBulkReposList = (response).map {RepositoryVM(repo: $0) }
-            self.localSearchList = self.parentBulkReposList
+            self.filteredListData = self.parentBulkReposList
             self.loadRepoDataIfNeeded(shouldClear: true)
         }
         

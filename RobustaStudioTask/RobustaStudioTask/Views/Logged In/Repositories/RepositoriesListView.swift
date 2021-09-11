@@ -11,8 +11,6 @@ import UIKit
 class RepositoriesListView: UIView {
     
     //MARK: - Outlets
-    @IBOutlet weak var pageTitle: UILabel!
-    @IBOutlet weak var repoIcon: UIImageView!
     @IBOutlet weak var repositoryTableView: UITableView!
     @IBOutlet weak var zeroStateView: ZeroStateView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,19 +25,12 @@ class RepositoriesListView: UIView {
     
     //MARK: - Methods
     private func designSetup() {
-        //headerDesignSetup
-        headerDesignSetup()
         //SearchBar Setup
         SearchBarDesignSetup()
         //TableView Setup
         setupRepositoriesTable()
         //ZeroState Design Setup
         zeroStateSetup()
-    }
-    
-    private func headerDesignSetup() {
-        repoIcon.image = ImagesDesignSystem.backGroundImage.repoIcon.image
-        pageTitle.config(font: UIFont(name: AppFonts.boldHelvetica, size: 22) ?? UIFont(), color: ColorDesignSystem.Colors.black.color, text: "Repositories")
     }
     
     private func SearchBarDesignSetup() {

@@ -9,6 +9,7 @@ import Combine
 
 enum PurchaseServiceEndpoints {
     case repositoriesList
+    case userData(userUrl: String)
 }
 
 extension PurchaseServiceEndpoints {
@@ -27,7 +28,9 @@ extension PurchaseServiceEndpoints {
     var getURL: String {
         switch self {
         case .repositoriesList:
-            return "/repositories"
+            return environment.purchaseServiceBaseUrl + "/repositories"
+        case let .userData(userUrl):
+            return "\(userUrl)"
         }
     }
     
@@ -38,6 +41,7 @@ extension PurchaseServiceEndpoints {
     
     // compose the NetworkRequest
     func createRequest() -> NetworkRequest {
-        return NetworkRequest(url: environment.purchaseServiceBaseUrl + getURL, headers: [:], reqBody: requestBody, httpMethod: httpMethod)
+        print("final url",  getURL)
+        return NetworkRequest(url: getURL, headers: [:], reqBody: requestBody, httpMethod: httpMethod)
     }
 }

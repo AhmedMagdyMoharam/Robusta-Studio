@@ -40,24 +40,24 @@ class RepositoryCell: UITableViewCell {
         ownerAvatar.contentMode = .scaleToFill
         
         //bodySetup
-        repoName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color)
+        repoName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
         ownerName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 14) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
         repoOwnerType.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
-        repoTypeImage.image = ImagesDesignSystem.backGroundImage.repoTypeIcon.image
+        repoTypeImage.image = ImagesDesignSystem.images.repoTypeIcon.image
     }
     
     private func fetchRepoData() {
         guard let data = data else { return }
         //bodySetup
         repoName.text = data.name
-        ownerName.text = data.owner?.ownerName
-        data.owner?.type == .organization ? (repoOwnerType.text = "Organization") : (repoOwnerType.text = "User")
+        ownerName.text = data.owner?.ownerUserName
+        data.owner?.typeType == .organization ? (repoOwnerType.text = "Organization") : (repoOwnerType.text = "User")
         
         // user avatar
         if let url = URL(string: data.owner?.avatarURL ?? "") {
             ownerAvatar.loadImageWithUrl(url)
         } else {
-            ownerAvatar.image = ImagesDesignSystem.backGroundImage.userPlaceHolder.image
+            ownerAvatar.image = ImagesDesignSystem.images.userPlaceHolder.image
         }
     }
 }
