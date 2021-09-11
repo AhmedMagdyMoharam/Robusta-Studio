@@ -13,6 +13,8 @@ struct ImagesDesignSystem {
     enum backGroundImage: String {
         //Landing Page
         case loadingPagePlaceHolder = "LoadingPlaceHolder"
+        case zeroStateRepos = "ZeroStateRepos"
+        
         
         var image: UIImage {
             return UIImage(named: self.rawValue) ?? UIImage()

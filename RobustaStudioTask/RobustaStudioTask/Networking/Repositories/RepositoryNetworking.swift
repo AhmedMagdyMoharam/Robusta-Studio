@@ -31,12 +31,12 @@ extension PurchaseServiceEndpoints {
         }
     }
     
+    // app environment
     var environment: Environment {
         return .development
     }
     
     // compose the NetworkRequest
-    
     func createRequest() -> NetworkRequest {
         return NetworkRequest(url: environment.purchaseServiceBaseUrl + getURL, headers: [:], reqBody: requestBody, httpMethod: httpMethod)
     }

@@ -15,6 +15,8 @@ struct ColorDesignSystem {
         case white = "White"
         case appRed = "WellRead"
         case appLightGray = "Gallery"
+        case inputDarkerGray = "inputCharcoalDarker"
+        case black = "Black"
         
         // Toast Colors
         case bittersweet = "Bittersweet"

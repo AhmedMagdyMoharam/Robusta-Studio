@@ -45,6 +45,8 @@
 		65D666EF26EBCFCE00E73050 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EE26EBCFCE00E73050 /* LoadingVC.swift */; };
 		65D666F126EBCFD800E73050 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F026EBCFD800E73050 /* LoadingView.swift */; };
 		65D666F326EBE74C00E73050 /* WorkItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F226EBE74C00E73050 /* WorkItemManager.swift */; };
+		65D666F626EC3C6600E73050 /* ZeroStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D666F526EC3C6600E73050 /* ZeroStateView.xib */; };
+		65D666F826EC3C8D00E73050 /* ZeroStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666F726EC3C8D00E73050 /* ZeroStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		65D666EE26EBCFCE00E73050 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		65D666F026EBCFD800E73050 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		65D666F226EBE74C00E73050 /* WorkItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemManager.swift; sourceTree = "<group>"; };
+		65D666F526EC3C6600E73050 /* ZeroStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateView.xib; sourceTree = "<group>"; };
+		65D666F726EC3C8D00E73050 /* ZeroStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,13 +189,13 @@
 		65D666AC26EB1AAC00E73050 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				65D666D326EB265F00E73050 /* Collection+Handling.swift */,
 				65D666AD26EB1ADE00E73050 /* UIWindow+Transition.swift */,
 				65D666B926EB1C9100E73050 /* UIView+Corner.swift */,
 				65D666BB26EB1CB200E73050 /* UIElement+Config.swift */,
 				65D666BD26EB1CF100E73050 /* UIView+Border.swift */,
 				65D666EC26EBCF9300E73050 /* UILabel+Animation.swift */,
 				65D666BF26EB1D5C00E73050 /* UINavigation+Transparent.swift */,
+				65D666D326EB265F00E73050 /* Collection+Handling.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -209,6 +213,7 @@
 		65D666C126EB210700E73050 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				65D666F426EC3C2600E73050 /* ReusableComponents */,
 				65D666DE26EBBC3600E73050 /* Loading */,
 				65D666DF26EBBC4600E73050 /* Logged In */,
 			);
@@ -275,6 +280,15 @@
 			path = "Logged In";
 			sourceTree = "<group>";
 		};
+		65D666F426EC3C2600E73050 /* ReusableComponents */ = {
+			isa = PBXGroup;
+			children = (
+				65D666F526EC3C6600E73050 /* ZeroStateView.xib */,
+				65D666F726EC3C8D00E73050 /* ZeroStateView.swift */,
+			);
+			path = ReusableComponents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D666F626EC3C6600E73050 /* ZeroStateView.xib in Resources */,
 				65D666B826EB1BFE00E73050 /* ToastView.xib in Resources */,
 				65D666E926EBCBF400E73050 /* Home.storyboard in Resources */,
 				65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */,
@@ -347,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D666F826EC3C8D00E73050 /* ZeroStateView.swift in Sources */,
 				65D666A826EB17FA00E73050 /* BaseResponse.swift in Sources */,
 				65D666DC26EB29A300E73050 /* RepositoryModel.swift in Sources */,
 				65D666CD26EB232800E73050 /* FontsDesignSystem.swift in Sources */,

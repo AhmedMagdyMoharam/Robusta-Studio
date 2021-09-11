@@ -15,13 +15,64 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="RepositoriesListView" customModule="RobustaStudioTask" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="etE-uX-qf6">
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EZE-0w-0Hm">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EZE-0w-0Hm" id="EAI-YK-8TE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="jtT-hB-7KS"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="wEM-Ns-uWD"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JPm-eW-mp5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-jM-Wuf" customClass="ZeroStateView" customModule="RobustaStudioTask" customModuleProvider="target">
+                                <rect key="frame" x="20" y="348" width="374" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YU0-61-7js"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="etE-uX-qf6" firstAttribute="top" secondItem="JPm-eW-mp5" secondAttribute="bottom" id="3Ec-lH-umy"/>
+                            <constraint firstItem="JPm-eW-mp5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3v0-cL-5KY"/>
+                            <constraint firstItem="etE-uX-qf6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3wZ-3t-FTi"/>
+                            <constraint firstItem="Nec-jM-Wuf" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="8aW-Vl-qQs"/>
+                            <constraint firstItem="etE-uX-qf6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Bam-Nu-Sm2"/>
+                            <constraint firstItem="etE-uX-qf6" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="EZ2-47-G1a"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nec-jM-Wuf" secondAttribute="trailing" constant="20" id="ZHm-Kw-p0G"/>
+                            <constraint firstItem="JPm-eW-mp5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nc7-SU-GEk"/>
+                            <constraint firstItem="Nec-jM-Wuf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="rU7-E6-Jvd"/>
+                            <constraint firstItem="JPm-eW-mp5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yKO-hO-0iH"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="repositoryTableView" destination="etE-uX-qf6" id="Cc1-Xk-kyT"/>
+                            <outlet property="searchBar" destination="JPm-eW-mp5" id="1cY-vw-4PZ"/>
+                            <outlet property="zeroStateView" destination="Nec-jM-Wuf" id="fSh-dg-dD2"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="mainView" destination="5EZ-qb-Rvc" id="4Hi-ST-Fbz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="106"/>
+            <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </scene>
     </scenes>
     <resources>
