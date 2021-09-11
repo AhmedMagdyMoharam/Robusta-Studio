@@ -17,6 +17,7 @@ struct ImagesDesignSystem {
         case repoTypeIcon = "RepoTypeIcon"
         case userPlaceHolder = "UserPlaceHolder"
         case repoIcon = "RepoIcon"
+        case gitHubIcon = "GitHubIcon"
         
         var image: UIImage {
             return UIImage(named: self.rawValue) ?? UIImage()

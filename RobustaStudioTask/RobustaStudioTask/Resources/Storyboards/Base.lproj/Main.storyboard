@@ -25,20 +25,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uf-Wq-zJL">
+                                <rect key="frame" x="145" y="293.5" width="124" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6uf-Wq-zJL" secondAttribute="height" id="EXA-W0-gaw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="exg-8R-Ooi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9sY-Uy-8T7"/>
                             <constraint firstItem="exg-8R-Ooi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MGA-hc-99c"/>
+                            <constraint firstItem="hrr-Fh-AtM" firstAttribute="top" secondItem="6uf-Wq-zJL" secondAttribute="bottom" constant="20" id="OwB-9I-8vj"/>
+                            <constraint firstItem="6uf-Wq-zJL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZBu-bL-zon"/>
                             <constraint firstItem="hrr-Fh-AtM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jtj-S3-17G"/>
                             <constraint firstItem="hrr-Fh-AtM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ob9-FH-VSc"/>
+                            <constraint firstItem="6uf-Wq-zJL" firstAttribute="width" secondItem="exg-8R-Ooi" secondAttribute="width" multiplier="0.3" id="s5t-AF-wES"/>
                             <constraint firstItem="exg-8R-Ooi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sCO-yw-26s"/>
                             <constraint firstAttribute="bottom" secondItem="exg-8R-Ooi" secondAttribute="bottom" id="yjn-ID-wB9"/>
                         </constraints>
                         <connections>
                             <outlet property="bgImage" destination="exg-8R-Ooi" id="x20-TB-ekU"/>
                             <outlet property="companyName" destination="hrr-Fh-AtM" id="8H5-0m-llQ"/>
+                            <outlet property="gitHubIcon" destination="6uf-Wq-zJL" id="Lcf-NA-gqV"/>
                         </connections>
                     </view>
                 </viewController>
