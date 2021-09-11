@@ -10,6 +10,9 @@ import Combine
 protocol RepositoryProviderProtocol {
     func repositoriesList() -> AnyPublisher<[RepositoryModel], NetworkError>
     func userData(userUrl: String) -> AnyPublisher<UserModel, NetworkError>
+    func commentsList(loginKey: String) -> AnyPublisher<[CommentModel], NetworkError>
+    func followersList(url: String) -> AnyPublisher<[UserModel], NetworkError>
+    func followingList(loginKey: String) -> AnyPublisher<[UserModel], NetworkError>
 }
 
 class RepositoryProvider: RepositoryProviderProtocol {
@@ -28,5 +31,14 @@ class RepositoryProvider: RepositoryProviderProtocol {
     }
     func userData(userUrl: String) -> AnyPublisher<UserModel, NetworkError> {
         return self.networkRequest.request(PurchaseServiceEndpoints.userData(userUrl: userUrl).createRequest())
+    }
+    func commentsList(loginKey: String) -> AnyPublisher<[CommentModel], NetworkError> {
+        return self.networkRequest.request(PurchaseServiceEndpoints.commentsList(loginKey: loginKey).createRequest())
+    }
+    func followersList(url: String) -> AnyPublisher<[UserModel], NetworkError> {
+        return self.networkRequest.request(PurchaseServiceEndpoints.followersList(url: url).createRequest())
+    }
+    func followingList(loginKey: String) -> AnyPublisher<[UserModel], NetworkError> {
+        return self.networkRequest.request(PurchaseServiceEndpoints.followingList(loginKey: loginKey).createRequest())
     }
 }

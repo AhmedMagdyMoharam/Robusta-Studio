@@ -18,6 +18,12 @@ class RepoDescriptionVC: UIViewController {
     private var viewModel: RepoDescriptionViewModelProtocol?
     private var shownIndexes: [IndexPath] = [] // used for cells animation
     private var subscriptions = Set<AnyCancellable>()
+    private var followsList: [UserVMProtocol] { // final gitHub repos list
+        viewModel?.followsList.value ?? []
+    }
+    private var commentsList: [CommentVMProtocol] {
+        viewModel?.commentsList.value ?? []
+    }
     
     //MARK: - Init & dealloc methods
     deinit {
@@ -29,6 +35,7 @@ class RepoDescriptionVC: UIViewController {
         super.viewDidLoad()
         setup()
     }
+    
     //MARK: - Methods
     class func create(viewModel: RepoDescriptionViewModelProtocol) -> RepoDescriptionVC {
         let vc: RepoDescriptionVC = StoryBoardDesignSystem.StoryBoard.repoDescription.name.instantiateViewController(identifier: "\(RepoDescriptionVC.self)")
@@ -45,6 +52,23 @@ class RepoDescriptionVC: UIViewController {
     
     private func setupBindings() {
         guard let viewModel = viewModel else { return }
+        
+        viewModel.followsList
+            .receive(on: DispatchQueue.main)
+            .dropFirst()
+            .sink { [ weak self ] _ in
+                guard let self = self else { return }
+                self.mainView.repoDescriptionTableView.reloadData()
+            }.store(in: &subscriptions)
+        
+        viewModel.commentsList
+            .receive(on: DispatchQueue.main)
+            .dropFirst()
+            .sink { [ weak self ] _ in
+                guard let self = self else { return }
+                self.mainView.repoDescriptionTableView.reloadData()
+            }.store(in: &subscriptions)
+        
         mainView.commentsButton.publisher(for: .touchUpInside)
             .receive(on: DispatchQueue.main)
             .sink { _ in
@@ -83,17 +107,22 @@ class RepoDescriptionVC: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] dataSource in
                 guard let self = self else { return }
+                self.shownIndexes.removeAll()
                 self.mainView.updateTabsUI(for: dataSource)
+                self.viewModel?.loadFollowersList()
             }.store(in: &subscriptions)
         
         viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {
+            .sink { [ weak self ] in
+                guard let self = self else { return }
                 switch $0 {
                 case let .loading(show):
                     show ? LoadingSpinnerManager.shared.showGeneral() : LoadingSpinnerManager.shared.hide()
                 case let .showError(message):
                     ToastManager.shared.showError(message: message, status: .failure)
+                case let .showZeroState(show):
+                    show ? (self.mainView.repoDescriptionTableView.setEmptyMessage(viewModel.handlingZeroState())) : (self.mainView.repoDescriptionTableView.restore())
                 }
             }.store(in: &subscriptions)
     }
@@ -102,12 +131,16 @@ class RepoDescriptionVC: UIViewController {
 //MARK: - TableView Configurations
 extension RepoDescriptionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        9
+        if viewModel?.pageType.value == .comments {
+            return commentsList.count
+        } else {
+            return followsList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RepositoryCell.self)") as? RepositoryCell else { return UITableViewCell() }
-//        cell.data = reposList[exist: indexPath.row]
+        viewModel?.pageType.value == .comments ? (cell.commentsData = commentsList[exist: indexPath.row]) : (cell.followData = followsList[exist: indexPath.row])
         return cell
     }
     
@@ -117,9 +150,6 @@ extension RepoDescriptionVC: UITableViewDelegate, UITableViewDataSource {
             AnimationUtility.shared.animate(cell)
             shownIndexes.append(indexPath)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

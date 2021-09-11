@@ -22,19 +22,3 @@ class RepositoryModel: Codable {
         case commentsURL = "comments_url"
     }
 }
-
-// MARK: - OwnerModel
-class UserModel: Codable {
-    let login, avatarURL ,htmlURL ,followingURL, type, followersURL, name, company, createdAt, location, url: String?
-    let siteAdmin: Bool?
-    
-    enum CodingKeys: String, CodingKey {
-        case login, type, name, company, url, location
-        case avatarURL = "avatar_url"
-        case htmlURL = "html_url"
-        case followersURL = "followers_url"
-        case followingURL = "following_url"
-        case createdAt = "created_at"
-        case siteAdmin = "site_admin"
-    }
-}

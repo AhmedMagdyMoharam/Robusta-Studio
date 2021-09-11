@@ -58,6 +58,10 @@
 		65D6671326ED00B700E73050 /* String + Convert Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671226ED00B700E73050 /* String + Convert Html.swift */; };
 		65D6671626ED0A0200E73050 /* StaticPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671526ED0A0200E73050 /* StaticPagesVC.swift */; };
 		65D6671C26ED2ED500E73050 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671B26ED2ED500E73050 /* Date+TimeAgo.swift */; };
+		65D6671F26ED5EFA00E73050 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671E26ED5EF900E73050 /* UserModel.swift */; };
+		65D6672126ED5F1500E73050 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6672026ED5F1500E73050 /* UserVM.swift */; };
+		65D6672426ED5F6900E73050 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6672326ED5F6900E73050 /* CommentModel.swift */; };
+		65D6672626ED5F7600E73050 /* CommentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6672526ED5F7600E73050 /* CommentVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +118,10 @@
 		65D6671226ED00B700E73050 /* String + Convert Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Convert Html.swift"; sourceTree = "<group>"; };
 		65D6671526ED0A0200E73050 /* StaticPagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPagesVC.swift; sourceTree = "<group>"; };
 		65D6671B26ED2ED500E73050 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
+		65D6671E26ED5EF900E73050 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		65D6672026ED5F1500E73050 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
+		65D6672326ED5F6900E73050 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		65D6672526ED5F7600E73050 /* CommentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +290,9 @@
 		65D666D926EB29A300E73050 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65D6671D26ED5EE100E73050 /* User */,
 				65D6671726ED1AA500E73050 /* Repository */,
+				65D6672226ED5F4700E73050 /* comments */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +388,24 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		65D6671D26ED5EE100E73050 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				65D6671E26ED5EF900E73050 /* UserModel.swift */,
+				65D6672026ED5F1500E73050 /* UserVM.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		65D6672226ED5F4700E73050 /* comments */ = {
+			isa = PBXGroup;
+			children = (
+				65D6672326ED5F6900E73050 /* CommentModel.swift */,
+				65D6672526ED5F7600E73050 /* CommentVM.swift */,
+			);
+			path = comments;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -463,11 +491,13 @@
 				65D6671126ECFD7200E73050 /* UIViewController + Swizzle.swift in Sources */,
 				65D666F126EBCFD800E73050 /* LoadingView.swift in Sources */,
 				65D6670426EC9BA600E73050 /* AnimationUtility.swift in Sources */,
+				65D6671F26ED5EFA00E73050 /* UserModel.swift in Sources */,
 				65D666BE26EB1CF100E73050 /* UIView+Border.swift in Sources */,
 				65D666A426EB17FA00E73050 /* RepositoryProvider.swift in Sources */,
 				65D6668226EB161300E73050 /* AppDelegate.swift in Sources */,
 				65D666B726EB1BFE00E73050 /* ToastView.swift in Sources */,
 				65D666A526EB17FA00E73050 /* RepositoryNetworking.swift in Sources */,
+				65D6672126ED5F1500E73050 /* UserVM.swift in Sources */,
 				65D666AB26EB1A5000E73050 /* AppStateManager.swift in Sources */,
 				65D666B026EB1B8900E73050 /* LoadingSpinnerManager.swift in Sources */,
 				65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */,
@@ -484,8 +514,10 @@
 				65D6670B26ECE3D700E73050 /* RepoDescriptionView.swift in Sources */,
 				65D666BC26EB1CB200E73050 /* UIElement+Config.swift in Sources */,
 				65D6670D26ECE42100E73050 /* RepoDescriptionVC.swift in Sources */,
+				65D6672426ED5F6900E73050 /* CommentModel.swift in Sources */,
 				65D666AE26EB1ADE00E73050 /* UIWindow+Transition.swift in Sources */,
 				65D666D226EB261200E73050 /* HapticManager.swift in Sources */,
+				65D6672626ED5F7600E73050 /* CommentVM.swift in Sources */,
 				65D666BA26EB1C9100E73050 /* UIView+Corner.swift in Sources */,
 				65D666A626EB17FA00E73050 /* Environments.swift in Sources */,
 				65D6670F26ECE42E00E73050 /* RepoDescriptionViewModel.swift in Sources */,

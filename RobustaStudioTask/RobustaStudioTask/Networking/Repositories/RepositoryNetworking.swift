@@ -10,6 +10,9 @@ import Combine
 enum PurchaseServiceEndpoints {
     case repositoriesList
     case userData(userUrl: String)
+    case commentsList(loginKey: String)
+    case followersList(url: String)
+    case followingList(loginKey: String)
 }
 
 extension PurchaseServiceEndpoints {
@@ -31,6 +34,12 @@ extension PurchaseServiceEndpoints {
             return environment.purchaseServiceBaseUrl + "/repositories"
         case let .userData(userUrl):
             return "\(userUrl)"
+        case let .commentsList(loginKey):
+            return environment.purchaseServiceBaseUrl + "/repos/\(loginKey)/comments"
+        case let .followersList(url):
+            return "\(url)"
+        case let .followingList(loginKey):
+            return  environment.purchaseServiceBaseUrl + "/users/\(loginKey)/following"
         }
     }
     

@@ -66,6 +66,7 @@ class RepoDescriptionView: UIView {
         // owner avatar
         ownerAvatar.circulate()
         ownerAvatar.contentMode = .scaleToFill
+        repoDescriptionTableView.isHidden = true
         
         //bodySetup
         ownerName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 13) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
@@ -89,15 +90,15 @@ class RepoDescriptionView: UIView {
         createAtValue.config(font: UIFont(name: AppFonts.regularHelvetica, size: 11) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color)
         
         // Three tabs
-        commentsButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.black.color, text: "Comments")
+        commentsButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Comments")
         commentsButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
         commentsButton.tintColor = .clear
         commentsButton.isSelected = viewModel?.pageType.value == .comments
-        followingButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.black.color, text: "Following")
+        followingButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Following")
         followingButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
         followingButton.tintColor = .clear
         followingButton.isSelected = viewModel?.pageType.value == .following
-        followersButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.black.color, text: "Followers")
+        followersButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Followers")
         followersButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
         followersButton.tintColor = .clear
         followersButton.isSelected = viewModel?.pageType.value == .followers
@@ -143,7 +144,7 @@ class RepoDescriptionView: UIView {
         return label.frame.height
     }
     
-    func fetchRepoData(repoData: RepositoryVMProtocol, user: OwnerVMProtocol) {
+    func fetchRepoData(repoData: RepositoryVMProtocol, user: UserVMProtocol) {
         repoName.text = repoData.fullRepoName
         privateTitle.text = repoData.topicPrivate
         forkStack.isHidden = !(repoData.fork ?? false)
@@ -155,10 +156,7 @@ class RepoDescriptionView: UIView {
         locationTitle.text = user.location
         if let descriptionText = try? repoData.topicDescription?.strippingHTML() {
             repoDescription.text = descriptionText
-            descriptionConstrainHeight.constant = heightForView(text: descriptionText,
-                                                                font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(),
-                                                                width: frame.width)
-        }
+            descriptionConstrainHeight.constant = heightForView(text: descriptionText, font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), width: frame.width) }
         // user avatar
         if let url = URL(string: user.avatarURL ?? "") {
             ownerAvatar.loadImageWithUrl(url)
@@ -166,5 +164,6 @@ class RepoDescriptionView: UIView {
             ownerAvatar.image = ImagesDesignSystem.images.userPlaceHolder.image
         }
         repoDescriptionTableView.updateHeaderViewHeight()
+        repoDescriptionTableView.isHidden = false
     }
 }
