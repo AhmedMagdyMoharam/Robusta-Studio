@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// I usually use Swift Gen
+/// I usually use Swift Gen (fonts, images, storyboards)
 struct AppFonts {
     
     static let regularHelvetica = "HelveticaNeue"

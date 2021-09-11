@@ -15,7 +15,8 @@ class LoadingView: UIView {
     @IBOutlet weak var bgImage: UIImageView!
     
     //MARK: - Properties
-    let ImageAlpha: CGFloat = 0.05
+    let ImageAlpha: CGFloat = 0.05 // alpha of the bg image 
+    let characterDelayValue: Double = 5 // Delay of set character animation
     
     //MARK: - Life Cycle
     override func awakeFromNib() {
@@ -30,7 +31,7 @@ class LoadingView: UIView {
         
         //Company name
         companyName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 30) ?? UIFont(), color: ColorDesignSystem.Colors.appRed.color)
-        companyName.setTextWithTypeAnimation(typedText: "Robusta Studio", characterDelay:  5)
+        companyName.setTextWithTypeAnimation(typedText: "Robusta Studio", characterDelay: characterDelayValue)
         
         //BackGround image
         bgImage.image = ImagesDesignSystem.backGroundImage.loadingPagePlaceHolder.image

@@ -35,7 +35,7 @@ class LoadingVC: UIViewController {
     }
     
     private func switchAppState() {
-        WorkItemManager.shared.perform(after: 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             AppStateManager.shared.switchState(to: .loggedIn)
         }
     }

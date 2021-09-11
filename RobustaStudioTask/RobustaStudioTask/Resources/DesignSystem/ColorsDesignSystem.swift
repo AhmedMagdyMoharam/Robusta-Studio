@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// I usually use Swift Gen
+/// I usually use Swift Gen (fonts, images, storyboards)
 struct ColorDesignSystem {
     
     enum Colors: String {

@@ -10,7 +10,6 @@ import UIKit
 
 //MARK: - LoadingSpinnerProtocol
 protocol LoadingSpinnerProtocol {
-    func show()
     func showGeneral()
     func hide()
 }
@@ -26,22 +25,6 @@ class LoadingSpinnerManager: LoadingSpinnerProtocol {
     static let shared: LoadingSpinnerProtocol = LoadingSpinnerManager()
     
     //MARK: Methods
-    func show() {
-        guard isLoading == false else {return}
-        isLoading = true
-        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-        containerView = UIView(frame: window.bounds)
-        loadingSpinner = UIActivityIndicatorView(style: .large)
-        loadingSpinner.color = .white
-        containerView.backgroundColor = UIColor(white: 0, alpha: 0.7)
-        loadingSpinner.startAnimating()
-        containerView.addSubview(loadingSpinner)
-        loadingSpinner.translatesAutoresizingMaskIntoConstraints = false
-        loadingSpinner.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        loadingSpinner.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        window.addSubview(containerView)
-    }
-    
     func showGeneral() {
         guard isLoading == false else {return}
         isLoading = true

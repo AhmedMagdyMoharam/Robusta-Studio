@@ -17,13 +17,14 @@ class RepositoriesListVC: UIViewController {
     //MARK: - Properties
     private var subscriptions = Set<AnyCancellable>()
     private var shownIndexes: [IndexPath] = [] // used for cells animation
-    private var refreshControl = UIRefreshControl()
+    private var searchDebounceValue = 250 // spending time until re hit action
     private var viewModel: RepositoriesListViewModelProtocol?
-    private var repoList: [RepositoryVMProtocol] {
+    private var refreshControl = UIRefreshControl()
+    private var reposList: [RepositoryVMProtocol] { // final gitHub repos list
         viewModel?.reposList.value ?? []
     }
     
-    //MARK: - Init & dealloc methods
+    //MARK: - Dealloc methods
     deinit {
         print("DeInit called: \(String(describing: self))")
     }
@@ -35,7 +36,7 @@ class RepositoriesListVC: UIViewController {
     }
     //MARK: - Methods
     class func create(viewModel: RepositoriesListViewModel) -> RepositoriesListVC {
-        /// I usually use Swift Gen
+        /// I usually use Swift Gen (fonts, images, storyboards)
         let vc: RepositoriesListVC = StoryBoardDesignSystem.StoryBoard.home.name.instantiateViewController(identifier: "\(RepositoriesListVC.self)")
         vc.viewModel = viewModel
         return vc
@@ -43,14 +44,19 @@ class RepositoriesListVC: UIViewController {
     
     private func setup() {
         guard let viewModel = viewModel else { return }
+        // Base Setup
         setupBindings()
+        // load to refresh
         pullToRefresh()
+        // Search bar setup
+        mainView.searchBar.delegate = self
+        // Load repos Api
         viewModel.LoadRepositoriesList()
     }
     
     private func setupBindings() {
         guard let viewModel = viewModel else { return }
-        
+        // Repo List
         viewModel.reposList
             .dropFirst()
             .receive(on: DispatchQueue.main)
@@ -59,6 +65,17 @@ class RepositoriesListVC: UIViewController {
                 self.mainView.repositoryTableView.reloadData()
             }.store(in: &subscriptions)
         
+        // Search Bar with debounce
+        NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: mainView.searchBar.searchTextField)
+            .compactMap {(($0.object as? UISearchTextField)?.text ?? "")}
+            .debounce(for: .milliseconds(searchDebounceValue), scheduler: RunLoop.main)
+            .assign(to: \.searchValue.value, on: viewModel)
+            .store(in: &subscriptions)
+        
+        // pull to refresh
+        refreshControllerBinding()
+        
+        // ViewModel states
         viewModel.state
             .receive(on: DispatchQueue.main)
             .sink { [ weak self ] in
@@ -75,18 +92,28 @@ class RepositoriesListVC: UIViewController {
     }
 }
 
-//MARK: - pull To refresh Configurations
-extension RepositoriesListVC {
+//MARK: - Search Configurations & pull To Refresh
+extension RepositoriesListVC: UISearchBarDelegate {
+    
+    // To AddAny Action when click in Search Button
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainView.searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+    }
+    
     private func pullToRefresh() {
         refreshControl.tintColor = ColorDesignSystem.Colors.black.color
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         mainView.repositoryTableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(sender:AnyObject) {
-        viewModel?.LoadRepositoriesList()
-        shownIndexes.removeAll()
-        refreshControl.endRefreshing()
+    private func refreshControllerBinding() {
+        refreshControl.publisher(for: .valueChanged)
+            .sink { [ weak self ] _ in
+                guard let self = self else { return }
+                self.viewModel?.LoadRepositoriesList()
+                self.shownIndexes.removeAll()
+                self.refreshControl.endRefreshing()
+            }.store(in: &subscriptions)
     }
 }
 
@@ -94,21 +121,20 @@ extension RepositoriesListVC {
 //MARK: - TableView Configurations
 extension RepositoriesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repoList.count
+        return reposList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RepositoryCell.self)") as? RepositoryCell else { return UITableViewCell() }
-        cell.data = repoList[exist: indexPath.row]
+        cell.data = reposList[exist: indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
         // Pagination
-        let lastElement = repoList.count - 1
+        let lastElement = reposList.count - 1
         if indexPath.row == lastElement { viewModel.loadRepoDataIfNeeded(shouldClear: false) }
-        
         // Cell Animation
         if !shownIndexes.contains(indexPath) {
             TableViewCellsAnimation.shared.animate(cell)

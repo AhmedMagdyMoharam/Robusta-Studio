@@ -37,7 +37,7 @@ protocol NetworkRequestProtocol {
 }
 
 class NetworkRequest: NetworkRequestProtocol {
-        
+    
     //MARK: - Properties
     var url: String
     var requestTimeOut: Float?
@@ -46,7 +46,7 @@ class NetworkRequest: NetworkRequestProtocol {
     let httpMethod: HTTPMethod
     
     //MARK:- Init
-     init(url: String, headers: [String: String]? = nil, reqBody: Encodable? = nil, reqTimeout: Float? = nil, httpMethod: HTTPMethod) {
+    init(url: String, headers: [String: String]? = nil, reqBody: Encodable? = nil, reqTimeout: Float? = nil, httpMethod: HTTPMethod) {
         self.url = url
         self.headers = headers
         self.body = reqBody?.encode()
@@ -61,7 +61,7 @@ class NetworkRequest: NetworkRequestProtocol {
         self.requestTimeOut = reqTimeout
         self.httpMethod = httpMethod
     }
-        
+    
     //MARK: - Methods
     func buildURLRequest(with url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
