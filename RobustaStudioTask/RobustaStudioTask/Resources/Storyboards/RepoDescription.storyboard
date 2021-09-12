@@ -39,13 +39,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cGB-JT-rFZ">
                                                             <rect key="frame" x="43" y="2" width="41.5" height="41"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd0-m4-ySP">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd0-m4-ySP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhq-7l-QnS">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhq-7l-QnS">
                                                                     <rect key="frame" x="0.0" y="20.5" width="41.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -278,6 +278,14 @@
                             <outlet property="selectionIndicatorConstraint" destination="YJP-vO-YvN" id="6FK-MW-FI9"/>
                             <outlet property="selectionIndicatorView" destination="ntm-mF-dJs" id="8MW-Vs-cEq"/>
                             <outlet property="tableHeader" destination="qVB-td-juv" id="1TA-3e-ALv"/>
+                            <outletCollection property="taps" destination="8i9-XO-HVR" collectionClass="NSMutableArray" id="ei9-hz-gKz"/>
+                            <outletCollection property="taps" destination="5ej-me-Hk9" collectionClass="NSMutableArray" id="ggZ-94-cp1"/>
+                            <outletCollection property="taps" destination="O77-sN-RMe" collectionClass="NSMutableArray" id="hCC-r0-bun"/>
+                            <outletCollection property="headerIcons" destination="tdR-Rb-LxU" collectionClass="NSMutableArray" id="r3Q-GV-3RO"/>
+                            <outletCollection property="headerIcons" destination="CCd-8a-FUn" collectionClass="NSMutableArray" id="4js-04-gjP"/>
+                            <outletCollection property="headerIcons" destination="zm0-Jj-3NZ" collectionClass="NSMutableArray" id="WCg-Mi-KM5"/>
+                            <outletCollection property="headerIcons" destination="m1p-XE-N8Q" collectionClass="NSMutableArray" id="Xla-bW-GdU"/>
+                            <outletCollection property="headerIcons" destination="dJz-0f-Cvj" collectionClass="NSMutableArray" id="ffr-zV-lTF"/>
                         </connections>
                     </view>
                     <connections>

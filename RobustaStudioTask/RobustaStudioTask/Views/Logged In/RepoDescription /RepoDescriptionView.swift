@@ -13,12 +13,10 @@ class RepoDescriptionView: UIView {
     //MARK: - Outlets
     @IBOutlet weak var repoDescriptionTableView: UITableView!
     @IBOutlet weak var tableHeader: UIView!
-    
     @IBOutlet weak var ownerAvatar: ImageLoader!
     @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var ownerUserName: UILabel!
     @IBOutlet weak var repoName: UILabel!
-    
     @IBOutlet weak var privateIcon: UIImageView!
     @IBOutlet weak var privateTitle: UILabel!
     @IBOutlet weak var forkStack: UIStackView!
@@ -26,7 +24,6 @@ class RepoDescriptionView: UIView {
     @IBOutlet weak var forkTitle: UILabel!
     @IBOutlet weak var repoTypeImage: UIImageView!
     @IBOutlet weak var repoOwnerTitle: UILabel!
-    
     @IBOutlet weak var descriptionConstrainHeight: NSLayoutConstraint!
     @IBOutlet weak var repoDescription: UILabel!
     @IBOutlet weak var gitHubLinkStack: UIStackView!
@@ -34,11 +31,11 @@ class RepoDescriptionView: UIView {
     @IBOutlet weak var repoLink: UILabel!
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var locationTitle: UILabel!
-    
+    @IBOutlet var headerIcons: [UIImageView]!
     @IBOutlet weak var createAtTitle: UILabel!
     @IBOutlet weak var createAtValue: UILabel!
-    
     // Three native tabs
+    @IBOutlet var taps: [UIButton]!
     @IBOutlet weak var commentsButton: UIButton!
     @IBOutlet weak var followingButton: UIButton!
     @IBOutlet weak var followersButton: UIButton!
@@ -47,6 +44,10 @@ class RepoDescriptionView: UIView {
     
     //MARK: - Properties
     private var viewModel: RepoDescriptionViewModel?
+    private let tapsTitle = ["Comments", "Following", "Followers"]
+    lazy var tapsSelectionType: [Bool] = [viewModel?.pageType.value == .comments, viewModel?.pageType.value == .following, viewModel?.pageType.value == .followers]
+    private let icons = [ImagesDesignSystem.images.privateIcon.image, ImagesDesignSystem.images.forkIcon.image,  ImagesDesignSystem.images.repoTypeIcon.image, ImagesDesignSystem.images.locationIcon.image, ImagesDesignSystem.images.gitHubIcon.image]
+
     
     //MARK: - Life Cycle
     override func awakeFromNib() {
@@ -66,42 +67,28 @@ class RepoDescriptionView: UIView {
         // owner avatar
         ownerAvatar.circulate()
         ownerAvatar.contentMode = .scaleToFill
-        repoDescriptionTableView.isHidden = true
-        
         //bodySetup
         ownerName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 13) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
         ownerUserName.config(font: UIFont(name: AppFonts.regularHelvetica, size: 11) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
         repoName.config(font: UIFont(name: AppFonts.boldHelvetica, size: 18) ?? UIFont(), color: ColorDesignSystem.Colors.black.color)
-
-        privateIcon.image = ImagesDesignSystem.images.privateIcon.image
         privateTitle.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
-        forkImage.image = ImagesDesignSystem.images.forkIcon.image
         forkTitle.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
-        repoTypeImage.image = ImagesDesignSystem.images.repoTypeIcon.image
         repoOwnerTitle.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
         repoDescription.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color, numberOfLines: 0)
         repoLink.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.linkBlue.color)
-        gitHubIcon.image = ImagesDesignSystem.images.gitHubIcon.image
-        locationIcon.image = ImagesDesignSystem.images.locationIcon.image
         locationTitle.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color)
-        gitHubLinkStack.isUserInteractionEnabled = true
-        
         createAtTitle.config(font: UIFont(name: AppFonts.regularHelvetica, size: 12) ?? UIFont(), color: ColorDesignSystem.Colors.black.color, text: "Created at:")
         createAtValue.config(font: UIFont(name: AppFonts.regularHelvetica, size: 11) ?? UIFont(), color: ColorDesignSystem.Colors.inputDarkerGray.color)
-        
-        // Three tabs
-        commentsButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Comments")
-        commentsButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
-        commentsButton.tintColor = .clear
-        commentsButton.isSelected = viewModel?.pageType.value == .comments
-        followingButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Following")
-        followingButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
-        followingButton.tintColor = .clear
-        followingButton.isSelected = viewModel?.pageType.value == .following
-        followersButton.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: "Followers")
-        followersButton.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
-        followersButton.tintColor = .clear
-        followersButton.isSelected = viewModel?.pageType.value == .followers
+        gitHubLinkStack.isUserInteractionEnabled = true
+        //Header Icons Setup
+        for (image, icon) in zip(headerIcons, icons) { image.image = icon }
+        // Three tabs setup
+        for (button, (title, selection)) in zip(taps, zip(tapsTitle, tapsSelectionType))  {
+            button.config(font: UIFont(name: AppFonts.regularHelvetica, size: 15) ?? UIFont(), color: ColorDesignSystem.Colors.gray.color, text: title)
+            button.setTitleColor(ColorDesignSystem.Colors.appRed.color, for: .selected)
+            button.isSelected = selection
+            button.tintColor = .clear
+        }
         selectionIndicatorView.backgroundColor = ColorDesignSystem.Colors.appRed.color
     }
     
@@ -110,6 +97,7 @@ class RepoDescriptionView: UIView {
         repoDescriptionTableView.separatorStyle = .none
         repoDescriptionTableView.showsVerticalScrollIndicator = false
         repoDescriptionTableView.showsHorizontalScrollIndicator = false
+        repoDescriptionTableView.isHidden = true
         repoDescriptionTableView.register(UINib(nibName: "\(RepositoryCell.self)", bundle: nil), forCellReuseIdentifier: "\(RepositoryCell.self)")
     }
     
@@ -139,7 +127,6 @@ class RepoDescriptionView: UIView {
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = text
-
         label.sizeToFit()
         return label.frame.height
     }
