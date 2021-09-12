@@ -1,5 +1,5 @@
 //
-//  RepositoriesListViewModel.swift
+//  GitHubRepositoriesViewModel.swift
 //  RobustaStudioTask
 //
 //  Created by ahmed moharam on 10/09/2021.
@@ -8,15 +8,16 @@
 import Foundation
 import Combine
 
-protocol RepositoriesListViewModelProtocol {
-    var state: PassthroughSubject<RepositoriesListViewModel.PageState, Never> { get }
+//MARK: - GitHubRepositoriesViewModelProtocol
+protocol GitHubRepositoriesViewModelProtocol {
+    var state: PassthroughSubject<GitHubRepositoriesViewModel.PageState, Never> { get }
     var reposList: CurrentValueSubject<[RepositoryVMProtocol], Never> { get }
     var searchValue: CurrentValueSubject<String,Never> { get }
     func LoadRepositoriesList()
     func loadRepoDataIfNeeded(shouldClear: Bool)
 }
 
-class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
+class GitHubRepositoriesViewModel: GitHubRepositoriesViewModelProtocol {
     
     // MARK: - Enums
     enum PageState {
@@ -41,7 +42,7 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
         self.state.send(.loading(false))
         switch completion {
         case let .failure(error):
-            self.state.send(.showMessage(message: error.localizedDescription, state: .failure))
+            self.state.send(.showMessage(message: Message.poorConnection, state: .failure))
         case .finished:
             print("Api Finished")
         }
@@ -87,7 +88,7 @@ class RepositoriesListViewModel: RepositoriesListViewModelProtocol {
     }
     
     //MARK: API Call
-    func LoadRepositoriesList() {
+    func LoadRepositoriesList() { // repos Api
         self.state.send(.loading(true))
         let responseHandler: (([RepositoryModel]) -> Void) = { [weak self] response in
             guard let self = self else { return }

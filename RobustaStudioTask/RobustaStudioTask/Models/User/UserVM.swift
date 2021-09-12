@@ -33,7 +33,6 @@ class UserVM: UserVMProtocol {
     init(user: UserModel?) {
         self.user = user
     }
-    
     var location: String? {
         user?.location
     }

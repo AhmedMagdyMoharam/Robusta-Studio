@@ -13,6 +13,8 @@ enum Environment: String, CaseIterable {
 }
 
 extension Environment {
+    
+    //MARK: - Properties
     var purchaseServiceBaseUrl: String {
         switch self {
         case .development:

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 extension UILabel {
+    
+    //MARK: - Methods
     func setTextWithTypeAnimation(typedText: String, characterDelay: TimeInterval = 5.0) {
         text = ""
         var writingTask: DispatchWorkItem?
@@ -26,5 +28,4 @@ extension UILabel {
             queue.asyncAfter(deadline: .now() + 0.05, execute: task)
         }
     }
-    
 }

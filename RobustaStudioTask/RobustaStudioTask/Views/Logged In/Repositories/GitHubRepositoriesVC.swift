@@ -1,5 +1,5 @@
 //
-//  RepositoriesListVC.swift
+//  GitHubRepositoriesVC.swift
 //  RobustaStudioTask
 //
 //  Created by ahmed moharam on 10/09/2021.
@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 import Combine
 
-class RepositoriesListVC: UIViewController {
+class GitHubRepositoriesVC: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet var mainView: RepositoriesListView!
+    @IBOutlet var mainView: GitHubRepositoriesView!
     
     //MARK: - Properties
     private var subscriptions = Set<AnyCancellable>()
     private var shownIndexes: [IndexPath] = [] // used for cells animation
     private var searchDebounceValue = 250 // spending time until re hit action
-    private var viewModel: RepositoriesListViewModelProtocol?
+    private var viewModel: GitHubRepositoriesViewModelProtocol?
     private var refreshControl = UIRefreshControl()
     private var reposList: [RepositoryVMProtocol] { // final gitHub repos list
         viewModel?.reposList.value ?? []
@@ -35,9 +35,9 @@ class RepositoriesListVC: UIViewController {
         setup()
     }
     //MARK: - Methods
-    class func create(viewModel: RepositoriesListViewModelProtocol) -> RepositoriesListVC {
+    class func create(viewModel: GitHubRepositoriesViewModelProtocol) -> GitHubRepositoriesVC {
         /// I usually use Swift Gen (fonts, images, storyboards)
-        let vc: RepositoriesListVC = StoryBoardDesignSystem.StoryBoard.home.name.instantiateViewController(identifier: "\(RepositoriesListVC.self)")
+        let vc: GitHubRepositoriesVC = StoryBoardDesignSystem.StoryBoard.home.name.instantiateViewController(identifier: "\(GitHubRepositoriesVC.self)")
         vc.viewModel = viewModel
         return vc
     }
@@ -94,7 +94,7 @@ class RepositoriesListVC: UIViewController {
 }
 
 //MARK: - Search Configurations & pull To Refresh
-extension RepositoriesListVC: UISearchBarDelegate {
+extension GitHubRepositoriesVC: UISearchBarDelegate {
     
     // To AddAny Action when click in Search Button
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -120,7 +120,7 @@ extension RepositoriesListVC: UISearchBarDelegate {
 
 
 //MARK: - TableView Configurations
-extension RepositoriesListVC: UITableViewDelegate, UITableViewDataSource {
+extension GitHubRepositoriesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reposList.count
     }

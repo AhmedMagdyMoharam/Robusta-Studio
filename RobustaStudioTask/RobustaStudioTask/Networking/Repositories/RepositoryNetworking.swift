@@ -50,7 +50,6 @@ extension PurchaseServiceEndpoints {
     
     // compose the NetworkRequest
     func createRequest() -> NetworkRequest {
-        print("final url",  getURL)
         return NetworkRequest(url: getURL, headers: [:], reqBody: requestBody, httpMethod: httpMethod)
     }
 }

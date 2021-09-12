@@ -1,5 +1,5 @@
 //
-//  RepositoriesListView.swift
+//  GitHubRepositoriesView.swift
 //  RobustaStudioTask
 //
 //  Created by ahmed moharam on 10/09/2021.
@@ -8,14 +8,12 @@
 import Foundation
 import UIKit
 
-class RepositoriesListView: UIView {
+class GitHubRepositoriesView: UIView {
     
     //MARK: - Outlets
     @IBOutlet weak var repositoryTableView: UITableView!
     @IBOutlet weak var zeroStateView: ZeroStateView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    //MARK: - Properties
     
     //MARK: - Life Cycle
     override func awakeFromNib() {

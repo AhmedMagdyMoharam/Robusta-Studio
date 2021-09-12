@@ -11,10 +11,12 @@ import Foundation
 struct Message {
     static let invalidURL = "Invalid Url"
     static let serverError = "Server error"
+    static let poorConnection = "Poor connection. Try to find a stronger signal."
 }
 
 //MARK: - Server
 struct Server {
     static let developmentBaseURL = "https://api.github.com"
 }
+
 

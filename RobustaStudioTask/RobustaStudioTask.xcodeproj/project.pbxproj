@@ -35,9 +35,9 @@
 		65D666D426EB265F00E73050 /* Collection+Handling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666D326EB265F00E73050 /* Collection+Handling.swift */; };
 		65D666DC26EB29A300E73050 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666DA26EB29A300E73050 /* RepositoryModel.swift */; };
 		65D666DD26EB29A300E73050 /* RepositoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666DB26EB29A300E73050 /* RepositoryVM.swift */; };
-		65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */; };
-		65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */; };
-		65D666E526EBBCD700E73050 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */; };
+		65D666E126EBBC8A00E73050 /* GitHubRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E026EBBC8A00E73050 /* GitHubRepositoriesView.swift */; };
+		65D666E326EBBCC900E73050 /* GitHubRepositoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E226EBBCC900E73050 /* GitHubRepositoriesVC.swift */; };
+		65D666E526EBBCD700E73050 /* GitHubRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E426EBBCD700E73050 /* GitHubRepositoriesViewModel.swift */; };
 		65D666E926EBCBF400E73050 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D666E826EBCBF400E73050 /* Home.storyboard */; };
 		65D666EB26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */; };
 		65D666ED26EBCF9300E73050 /* UILabel+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EC26EBCF9300E73050 /* UILabel+Animation.swift */; };
@@ -95,9 +95,9 @@
 		65D666D326EB265F00E73050 /* Collection+Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Handling.swift"; sourceTree = "<group>"; };
 		65D666DA26EB29A300E73050 /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		65D666DB26EB29A300E73050 /* RepositoryVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryVM.swift; sourceTree = "<group>"; };
-		65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListView.swift; sourceTree = "<group>"; };
-		65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListVC.swift; sourceTree = "<group>"; };
-		65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
+		65D666E026EBBC8A00E73050 /* GitHubRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesView.swift; sourceTree = "<group>"; };
+		65D666E226EBBCC900E73050 /* GitHubRepositoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesVC.swift; sourceTree = "<group>"; };
+		65D666E426EBBCD700E73050 /* GitHubRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesViewModel.swift; sourceTree = "<group>"; };
 		65D666E826EBCBF400E73050 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardsDesignSystem.swift; sourceTree = "<group>"; };
 		65D666EC26EBCF9300E73050 /* UILabel+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Animation.swift"; sourceTree = "<group>"; };
@@ -257,11 +257,10 @@
 		65D666C726EB215E00E73050 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				65D6668C26EB161500E73050 /* LaunchScreen.storyboard */,
 				65D666C926EB22A700E73050 /* DesignSystem */,
 				65D666C826EB218500E73050 /* Storyboards */,
+				65D6668C26EB161500E73050 /* LaunchScreen.storyboard */,
 				65D6668F26EB161500E73050 /* Info.plist */,
-				65D6668A26EB161500E73050 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -279,6 +278,7 @@
 		65D666C926EB22A700E73050 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				65D6668A26EB161500E73050 /* Assets.xcassets */,
 				65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */,
 				65D666CE26EB235B00E73050 /* ImagesDesignSystem.swift */,
 				65D666CA26EB22BE00E73050 /* ColorsDesignSystem.swift */,
@@ -346,9 +346,9 @@
 		65D6670726ECE26F00E73050 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				65D666E026EBBC8A00E73050 /* RepositoriesListView.swift */,
-				65D666E226EBBCC900E73050 /* RepositoriesListVC.swift */,
-				65D666E426EBBCD700E73050 /* RepositoriesListViewModel.swift */,
+				65D666E026EBBC8A00E73050 /* GitHubRepositoriesView.swift */,
+				65D666E226EBBCC900E73050 /* GitHubRepositoriesVC.swift */,
+				65D666E426EBBCD700E73050 /* GitHubRepositoriesViewModel.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -487,7 +487,7 @@
 				65D666EF26EBCFCE00E73050 /* LoadingVC.swift in Sources */,
 				65D6671326ED00B700E73050 /* String + Convert Html.swift in Sources */,
 				65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */,
-				65D666E126EBBC8A00E73050 /* RepositoriesListView.swift in Sources */,
+				65D666E126EBBC8A00E73050 /* GitHubRepositoriesView.swift in Sources */,
 				65D6671126ECFD7200E73050 /* UIViewController + Swizzle.swift in Sources */,
 				65D666F126EBCFD800E73050 /* LoadingView.swift in Sources */,
 				65D6670426EC9BA600E73050 /* AnimationUtility.swift in Sources */,
@@ -500,12 +500,12 @@
 				65D6672126ED5F1500E73050 /* UserVM.swift in Sources */,
 				65D666AB26EB1A5000E73050 /* AppStateManager.swift in Sources */,
 				65D666B026EB1B8900E73050 /* LoadingSpinnerManager.swift in Sources */,
-				65D666E326EBBCC900E73050 /* RepositoriesListVC.swift in Sources */,
+				65D666E326EBBCC900E73050 /* GitHubRepositoriesVC.swift in Sources */,
 				65D666FC26EC4B3000E73050 /* RepositoryCell.swift in Sources */,
 				65D666A726EB17FA00E73050 /* TargetType.swift in Sources */,
 				65D666C026EB1D5C00E73050 /* UINavigation+Transparent.swift in Sources */,
 				65D6669826EB16F700E73050 /* CombineHelper.swift in Sources */,
-				65D666E526EBBCD700E73050 /* RepositoriesListViewModel.swift in Sources */,
+				65D666E526EBBCD700E73050 /* GitHubRepositoriesViewModel.swift in Sources */,
 				65D6671C26ED2ED500E73050 /* Date+TimeAgo.swift in Sources */,
 				65D666EB26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift in Sources */,
 				65D666DD26EB29A300E73050 /* RepositoryVM.swift in Sources */,

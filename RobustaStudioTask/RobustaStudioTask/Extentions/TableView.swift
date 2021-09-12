@@ -11,6 +11,8 @@ import UIKit
 class LoadingContainer: UIView {}
 
 extension UIView {
+    
+    //MARK: - Methods
     func startImbeddedLoading(withBg: UIColor = .white, loaderColor: UIColor = .gray) {
         let loadingSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
         let containerView: LoadingContainer = LoadingContainer()

@@ -47,7 +47,8 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
         self?.state.send(.loading(false))
         switch completion {
         case .failure(let error):
-            self?.state.send(.showError(message: error.localizedDescription))
+            print(error)
+            self?.state.send(.showError(message: Message.poorConnection))
         case .finished:
             print("Finished")
         }
@@ -72,6 +73,12 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
         }
     }
     
+    private func clearAllData() {
+        commentsList.value.removeAll()
+        followsList.value.removeAll()
+    }
+    
+    //MARK: API Call
     func loadUserData() {
         let responseHandler: ((UserModel) -> Void) = { [weak self] response in
             guard let self = self else { return }
@@ -83,12 +90,7 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
             .sink(receiveCompletion: requestCompletionHandler, receiveValue: responseHandler)
             .store(in: &subscriptions)
     }
-    
-    private func clearAllData() {
-        commentsList.value.removeAll()
-        followsList.value.removeAll()
-    }
-    
+        
     func loadFollowersList() {
         let commentsResponseHandler: (([CommentModel]) -> Void) = { [weak self] response in
             guard let self = self else { return }
@@ -106,16 +108,15 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
         clearAllData()
         
         switch self.pageType.value {
-        case .comments:
+        case .comments: // Comments Api
             provider?.commentsList(loginKey: repoData?.fullRepoName ?? "")
                 .sink(receiveCompletion: requestCompletionHandler, receiveValue: commentsResponseHandler)
                 .store(in: &subscriptions)
-            break
-        case .following:
+        case .following: // Following Api
             provider?.followingList(loginKey: repoData?.owner?.ownerUserName ?? "")
                 .sink(receiveCompletion: requestCompletionHandler, receiveValue: followResponseHandler)
                 .store(in: &subscriptions)
-        case .followers:
+        case .followers: //Followers Api
             provider?.followersList(url: repoData?.owner?.followersURL ?? "")
                 .sink(receiveCompletion: requestCompletionHandler, receiveValue: followResponseHandler)
                 .store(in: &subscriptions)

@@ -12,6 +12,8 @@ import Foundation
 import UIKit
 
 extension UINavigationController {
+    
+    //MARK: - Methods
     func addColorWithBackImage(image: UIImage, color: UIColor = .white) {
         self.navigationBar.barTintColor = color
         self.navigationBar.isTranslucent = true

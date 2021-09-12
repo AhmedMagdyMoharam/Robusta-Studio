@@ -18,7 +18,7 @@ class RepoDescriptionVC: UIViewController {
     private var viewModel: RepoDescriptionViewModelProtocol?
     private var shownIndexes: [IndexPath] = [] // used for cells animation
     private var subscriptions = Set<AnyCancellable>()
-    private var followsList: [UserVMProtocol] { // final gitHub repos list
+    private var followsList: [UserVMProtocol] { 
         viewModel?.followsList.value ?? []
     }
     private var commentsList: [CommentVMProtocol] {
