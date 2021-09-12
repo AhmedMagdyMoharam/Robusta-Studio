@@ -11,9 +11,9 @@ import UIKit
 struct StoryBoardDesignSystem {
     
     enum StoryBoard: String {
-        case main = "Main"
-        case home = "Home"
-        case repoDescription = "RepoDescription"
+        case main = "Loading"
+        case home = "Repos"
+        case repoDescription = "RepoDetails"
         
         var name: UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: .none)

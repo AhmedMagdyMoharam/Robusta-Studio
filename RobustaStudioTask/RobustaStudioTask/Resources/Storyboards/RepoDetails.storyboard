@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </scene>
-        <!--Static PagesVC-->
+        <!--Static Web PageVC-->
         <scene sceneID="cUh-ZY-0kv">
             <objects>
-                <viewController storyboardIdentifier="StaticPagesVC" id="JLs-v5-IrI" customClass="StaticPagesVC" customModule="RobustaStudioTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StaticWebPageVC" id="JLs-v5-IrI" customClass="StaticWebPageVC" customModule="RobustaStudioTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rO1-GN-AFL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

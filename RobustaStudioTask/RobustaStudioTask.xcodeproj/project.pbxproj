@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65D6668226EB161300E73050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6668126EB161300E73050 /* AppDelegate.swift */; };
-		65D6668926EB161300E73050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668726EB161300E73050 /* Main.storyboard */; };
+		65D6668926EB161300E73050 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668726EB161300E73050 /* Loading.storyboard */; };
 		65D6668B26EB161500E73050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668A26EB161500E73050 /* Assets.xcassets */; };
 		65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6668C26EB161500E73050 /* LaunchScreen.storyboard */; };
 		65D6669826EB16F700E73050 /* CombineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6669726EB16F700E73050 /* CombineHelper.swift */; };
@@ -38,7 +38,7 @@
 		65D666E126EBBC8A00E73050 /* GitHubRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E026EBBC8A00E73050 /* GitHubRepositoriesView.swift */; };
 		65D666E326EBBCC900E73050 /* GitHubRepositoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E226EBBCC900E73050 /* GitHubRepositoriesVC.swift */; };
 		65D666E526EBBCD700E73050 /* GitHubRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666E426EBBCD700E73050 /* GitHubRepositoriesViewModel.swift */; };
-		65D666E926EBCBF400E73050 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D666E826EBCBF400E73050 /* Home.storyboard */; };
+		65D666E926EBCBF400E73050 /* Repos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D666E826EBCBF400E73050 /* Repos.storyboard */; };
 		65D666EB26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */; };
 		65D666ED26EBCF9300E73050 /* UILabel+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EC26EBCF9300E73050 /* UILabel+Animation.swift */; };
 		65D666EF26EBCFCE00E73050 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666EE26EBCFCE00E73050 /* LoadingVC.swift */; };
@@ -50,13 +50,13 @@
 		65D666FF26EC5DE200E73050 /* NativeLoadImage + Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */; };
 		65D6670126EC6CCB00E73050 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670026EC6CCB00E73050 /* TableView.swift */; };
 		65D6670426EC9BA600E73050 /* AnimationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670326EC9BA600E73050 /* AnimationUtility.swift */; };
-		65D6670626ECE23F00E73050 /* RepoDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6670526ECE23F00E73050 /* RepoDescription.storyboard */; };
+		65D6670626ECE23F00E73050 /* RepoDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D6670526ECE23F00E73050 /* RepoDetails.storyboard */; };
 		65D6670B26ECE3D700E73050 /* RepoDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670A26ECE3D700E73050 /* RepoDescriptionView.swift */; };
 		65D6670D26ECE42100E73050 /* RepoDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670C26ECE42100E73050 /* RepoDescriptionVC.swift */; };
 		65D6670F26ECE42E00E73050 /* RepoDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6670E26ECE42E00E73050 /* RepoDescriptionViewModel.swift */; };
 		65D6671126ECFD7200E73050 /* UIViewController + Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671026ECFD7200E73050 /* UIViewController + Swizzle.swift */; };
 		65D6671326ED00B700E73050 /* String + Convert Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671226ED00B700E73050 /* String + Convert Html.swift */; };
-		65D6671626ED0A0200E73050 /* StaticPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671526ED0A0200E73050 /* StaticPagesVC.swift */; };
+		65D6671626ED0A0200E73050 /* StaticWebPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671526ED0A0200E73050 /* StaticWebPageVC.swift */; };
 		65D6671C26ED2ED500E73050 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671B26ED2ED500E73050 /* Date+TimeAgo.swift */; };
 		65D6671F26ED5EFA00E73050 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6671E26ED5EF900E73050 /* UserModel.swift */; };
 		65D6672126ED5F1500E73050 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6672026ED5F1500E73050 /* UserVM.swift */; };
@@ -67,7 +67,7 @@
 /* Begin PBXFileReference section */
 		65D6667E26EB161300E73050 /* RobustaStudioTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaStudioTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D6668126EB161300E73050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65D6668826EB161300E73050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65D6668826EB161300E73050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Loading.storyboard; sourceTree = "<group>"; };
 		65D6668A26EB161500E73050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65D6668D26EB161500E73050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65D6668F26EB161500E73050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		65D666E026EBBC8A00E73050 /* GitHubRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesView.swift; sourceTree = "<group>"; };
 		65D666E226EBBCC900E73050 /* GitHubRepositoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesVC.swift; sourceTree = "<group>"; };
 		65D666E426EBBCD700E73050 /* GitHubRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesViewModel.swift; sourceTree = "<group>"; };
-		65D666E826EBCBF400E73050 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		65D666E826EBCBF400E73050 /* Repos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repos.storyboard; sourceTree = "<group>"; };
 		65D666EA26EBCC4E00E73050 /* StoryBoardsDesignSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardsDesignSystem.swift; sourceTree = "<group>"; };
 		65D666EC26EBCF9300E73050 /* UILabel+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Animation.swift"; sourceTree = "<group>"; };
 		65D666EE26EBCFCE00E73050 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
@@ -110,13 +110,13 @@
 		65D666FE26EC5DE200E73050 /* NativeLoadImage + Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NativeLoadImage + Caching.swift"; sourceTree = "<group>"; };
 		65D6670026EC6CCB00E73050 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		65D6670326EC9BA600E73050 /* AnimationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtility.swift; sourceTree = "<group>"; };
-		65D6670526ECE23F00E73050 /* RepoDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepoDescription.storyboard; sourceTree = "<group>"; };
+		65D6670526ECE23F00E73050 /* RepoDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepoDetails.storyboard; sourceTree = "<group>"; };
 		65D6670A26ECE3D700E73050 /* RepoDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDescriptionView.swift; sourceTree = "<group>"; };
 		65D6670C26ECE42100E73050 /* RepoDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDescriptionVC.swift; sourceTree = "<group>"; };
 		65D6670E26ECE42E00E73050 /* RepoDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDescriptionViewModel.swift; sourceTree = "<group>"; };
 		65D6671026ECFD7200E73050 /* UIViewController + Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Swizzle.swift"; sourceTree = "<group>"; };
 		65D6671226ED00B700E73050 /* String + Convert Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Convert Html.swift"; sourceTree = "<group>"; };
-		65D6671526ED0A0200E73050 /* StaticPagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPagesVC.swift; sourceTree = "<group>"; };
+		65D6671526ED0A0200E73050 /* StaticWebPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticWebPageVC.swift; sourceTree = "<group>"; };
 		65D6671B26ED2ED500E73050 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		65D6671E26ED5EF900E73050 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		65D6672026ED5F1500E73050 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
@@ -268,9 +268,9 @@
 		65D666C826EB218500E73050 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				65D6668726EB161300E73050 /* Main.storyboard */,
-				65D666E826EBCBF400E73050 /* Home.storyboard */,
-				65D6670526ECE23F00E73050 /* RepoDescription.storyboard */,
+				65D6668726EB161300E73050 /* Loading.storyboard */,
+				65D666E826EBCBF400E73050 /* Repos.storyboard */,
+				65D6670526ECE23F00E73050 /* RepoDetails.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 		65D6671426ED09E500E73050 /* StaticPage */ = {
 			isa = PBXGroup;
 			children = (
-				65D6671526ED0A0200E73050 /* StaticPagesVC.swift */,
+				65D6671526ED0A0200E73050 /* StaticWebPageVC.swift */,
 			);
 			path = StaticPage;
 			sourceTree = "<group>";
@@ -466,11 +466,11 @@
 				65D666F626EC3C6600E73050 /* ZeroStateView.xib in Resources */,
 				65D666FD26EC4B3000E73050 /* RepositoryCell.xib in Resources */,
 				65D666B826EB1BFE00E73050 /* ToastView.xib in Resources */,
-				65D6670626ECE23F00E73050 /* RepoDescription.storyboard in Resources */,
-				65D666E926EBCBF400E73050 /* Home.storyboard in Resources */,
+				65D6670626ECE23F00E73050 /* RepoDetails.storyboard in Resources */,
+				65D666E926EBCBF400E73050 /* Repos.storyboard in Resources */,
 				65D6668E26EB161500E73050 /* LaunchScreen.storyboard in Resources */,
 				65D6668B26EB161500E73050 /* Assets.xcassets in Resources */,
-				65D6668926EB161300E73050 /* Main.storyboard in Resources */,
+				65D6668926EB161300E73050 /* Loading.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +523,7 @@
 				65D6670F26ECE42E00E73050 /* RepoDescriptionViewModel.swift in Sources */,
 				65D666B626EB1BFE00E73050 /* ToastManager.swift in Sources */,
 				65D6669A26EB17BB00E73050 /* Constants.swift in Sources */,
-				65D6671626ED0A0200E73050 /* StaticPagesVC.swift in Sources */,
+				65D6671626ED0A0200E73050 /* StaticWebPageVC.swift in Sources */,
 				65D666ED26EBCF9300E73050 /* UILabel+Animation.swift in Sources */,
 				65D6670126EC6CCB00E73050 /* TableView.swift in Sources */,
 				65D666A926EB17FA00E73050 /* BaseAPI.swift in Sources */,
@@ -534,12 +534,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		65D6668726EB161300E73050 /* Main.storyboard */ = {
+		65D6668726EB161300E73050 /* Loading.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				65D6668826EB161300E73050 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Loading.storyboard;
 			sourceTree = "<group>";
 		};
 		65D6668C26EB161500E73050 /* LaunchScreen.storyboard */ = {

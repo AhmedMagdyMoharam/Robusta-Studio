@@ -90,7 +90,7 @@ class RepoDescriptionVC: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [ weak self ] _ in
                 guard let self = self else { return }
-                let vc = StaticPagesVC.create(url: viewModel.userData.value?.gitHubRepoLink ?? "")
+                let vc = StaticWebPageVC.create(url: viewModel.userData.value?.gitHubRepoLink ?? "")
                 self.navigationController?.pushViewController(vc, animated: true)
             }.store(in: &subscriptions)
         

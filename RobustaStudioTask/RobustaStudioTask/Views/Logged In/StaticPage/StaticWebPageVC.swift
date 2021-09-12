@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import WebKit
 
-class StaticPagesVC: UIViewController {
+class StaticWebPageVC: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var staticWebView: WKWebView!
@@ -30,8 +30,8 @@ class StaticPagesVC: UIViewController {
     
     //MARK:- Methods
     /// Dependency injection of StaticPagesVC
-    class func create(url: String) -> StaticPagesVC {
-        let vc: StaticPagesVC = StoryBoardDesignSystem.StoryBoard.repoDescription.name.instantiateViewController(identifier: "\(StaticPagesVC.self)")
+    class func create(url: String) -> StaticWebPageVC {
+        let vc: StaticWebPageVC = StoryBoardDesignSystem.StoryBoard.repoDescription.name.instantiateViewController(identifier: "\(StaticWebPageVC.self)")
         vc.url = url
         return vc
     }

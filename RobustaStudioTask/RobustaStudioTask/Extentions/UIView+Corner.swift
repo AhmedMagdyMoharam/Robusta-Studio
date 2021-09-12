@@ -9,16 +9,19 @@ import Foundation
 import UIKit
 
 extension UIView {
+    /// Set CornerReduse
     func setCornerRadius(radius: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
     
+    /// Set Corners as CACornerMask and Radius
     func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.maskedCorners = corners
     }
     
+    /// make image circular 
     func circulate() {
         self.layer.cornerRadius = self.frame.height / 2
         self.layer.masksToBounds = true
