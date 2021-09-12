@@ -29,6 +29,7 @@ class StaticPagesVC: UIViewController {
     }
     
     //MARK:- Methods
+    /// Dependency injection of StaticPagesVC
     class func create(url: String) -> StaticPagesVC {
         let vc: StaticPagesVC = StoryBoardDesignSystem.StoryBoard.repoDescription.name.instantiateViewController(identifier: "\(StaticPagesVC.self)")
         vc.url = url

@@ -35,8 +35,8 @@ class GitHubRepositoriesVC: UIViewController {
         setup()
     }
     //MARK: - Methods
+    /// Dependency injection of GitHubRepositoriesVC
     class func create(viewModel: GitHubRepositoriesViewModelProtocol) -> GitHubRepositoriesVC {
-        /// I usually use Swift Gen (fonts, images, storyboards)
         let vc: GitHubRepositoriesVC = StoryBoardDesignSystem.StoryBoard.home.name.instantiateViewController(identifier: "\(GitHubRepositoriesVC.self)")
         vc.viewModel = viewModel
         return vc

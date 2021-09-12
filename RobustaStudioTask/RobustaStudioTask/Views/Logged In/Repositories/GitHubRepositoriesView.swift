@@ -31,6 +31,7 @@ class GitHubRepositoriesView: UIView {
         zeroStateSetup()
     }
     
+    /// Setup SearchBar configs
     private func SearchBarDesignSetup() {
         searchBar.tintColor = ColorDesignSystem.Colors.black.color
         searchBar.placeholder = "Search ..."
@@ -39,6 +40,7 @@ class GitHubRepositoriesView: UIView {
         searchBar.setBackgroundImage(UIImage.init(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
     }
     
+    /// Setup tableView configs
     private func setupRepositoriesTable() {
         repositoryTableView.backgroundColor = .clear
         repositoryTableView.separatorStyle = .none
@@ -47,6 +49,7 @@ class GitHubRepositoriesView: UIView {
         repositoryTableView.register(UINib(nibName: "\(RepositoryCell.self)", bundle: nil), forCellReuseIdentifier: "\(RepositoryCell.self)")
     }
     
+    /// Setup zero state design
     private func zeroStateSetup() {
         zeroStateView.customSetup(title: "Repositories", body: "No repositories yet! \n Please search by another repo name.")
         zeroStateView.isHidden = true

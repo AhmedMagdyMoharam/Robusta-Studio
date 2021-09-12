@@ -37,6 +37,7 @@ class RepoDescriptionVC: UIViewController {
     }
     
     //MARK: - Methods
+    /// Dependency injection of RepoDescriptionVC
     class func create(viewModel: RepoDescriptionViewModelProtocol) -> RepoDescriptionVC {
         let vc: RepoDescriptionVC = StoryBoardDesignSystem.StoryBoard.repoDescription.name.instantiateViewController(identifier: "\(RepoDescriptionVC.self)")
         vc.viewModel = viewModel
@@ -57,16 +58,14 @@ class RepoDescriptionVC: UIViewController {
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .sink { [ weak self ] _ in
-                guard let self = self else { return }
-                self.mainView.repoDescriptionTableView.reloadData()
+                self?.mainView.repoDescriptionTableView.reloadData()
             }.store(in: &subscriptions)
         
         viewModel.commentsList
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .sink { [ weak self ] _ in
-                guard let self = self else { return }
-                self.mainView.repoDescriptionTableView.reloadData()
+                self?.mainView.repoDescriptionTableView.reloadData()
             }.store(in: &subscriptions)
         
         mainView.commentsButton.publisher(for: .touchUpInside)
@@ -140,7 +139,7 @@ extension RepoDescriptionVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RepositoryCell.self)") as? RepositoryCell else { return UITableViewCell() }
-        viewModel?.pageType.value == .comments ? (cell.commentsData = commentsList[exist: indexPath.row]) : (cell.followData = followsList[exist: indexPath.row])
+        viewModel?.pageType.value == .comments ? (cell.comment = commentsList[exist: indexPath.row]) : (cell.follow = followsList[exist: indexPath.row])
         return cell
     }
     

@@ -24,12 +24,12 @@ class RepositoryCell: UITableViewCell {
             fetchRepoData()
         }
     }
-    var followData: UserVMProtocol? {
+    var follow: UserVMProtocol? {
         didSet {
             fetchFollowData()
         }
     }
-    var commentsData: CommentVMProtocol? {
+    var comment: CommentVMProtocol? {
         didSet {
             fetchCommentData()
         }
@@ -62,27 +62,27 @@ class RepositoryCell: UITableViewCell {
         repoTypeImage.image = ImagesDesignSystem.images.repoTypeIcon.image
     }
     
-    // fetch repo data
+    /// Fetch data of repository cell
     private func fetchRepoData() {
         fetchCustomInputs(repoTitle:  data?.name, userName: data?.owner?.ownerUserName ?? "", type: data?.owner?.typeType, imageURL: data?.owner?.avatarURL ?? "")
     }
     
-    // fetch follow Data
+    /// Fetch data of Follow cell
     private func fetchFollowData() {
         ownerName.isHidden = true
         createdAt.isHidden = true
         commentDetails.isHidden = true
-        fetchCustomInputs(repoTitle: followData?.ownerUserName, userName: nil, type: followData?.typeType, imageURL: followData?.avatarURL ?? "")
+        fetchCustomInputs(repoTitle: follow?.ownerUserName, userName: nil, type: follow?.typeType, imageURL: follow?.avatarURL ?? "")
     }
     
-    // fetch comment data
+    /// Fetch data of comment cell
     private func fetchCommentData() {
-        fetchCustomInputs(repoTitle: commentsData?.user?.ownerUserName ?? "", userName: nil, type: followData?.typeType, imageURL: commentsData?.user?.avatarURL ?? "")
-        commentDetails.text = commentsData?.body
+        fetchCustomInputs(repoTitle: comment?.user?.ownerUserName ?? "", userName: nil, type: follow?.typeType, imageURL: comment?.user?.avatarURL ?? "")
+        commentDetails.text = comment?.body
         ownerName.isHidden = true
         createdAt.isHidden = false
         commentDetails.isHidden = false
-        createdAt.text = commentsData?.createdAt
+        createdAt.text = comment?.createdAt
     }
     
     private func fetchCustomInputs(repoTitle: String?, userName: String?, type: OwnerType?, imageURL: String) {

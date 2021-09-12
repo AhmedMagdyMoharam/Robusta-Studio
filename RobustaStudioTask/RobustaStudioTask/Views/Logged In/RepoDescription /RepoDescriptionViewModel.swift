@@ -24,13 +24,19 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
     
     // MARK: - Enums
     enum PageState {
+        /// Show\ hide loading activity indicator
         case loading(_ show: Bool)
+        /// Send message with multiple types
         case showError(message: String)
+        /// Show\ hide zero state when table not have rows
         case showZeroState(show: Bool)
     }
     enum pageType {
+        /// First tab .. using to git all comments 
         case comments
+        /// Second tab .. using to git all followers
         case following
+        /// Second tab .. using to git all followers
         case followers
     }
     
@@ -43,6 +49,7 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
     var commentsList = CurrentValueSubject<[CommentVMProtocol], Never>([])
     var pageType = CurrentValueSubject<pageType, Never>(.comments)
     var state = PassthroughSubject<PageState, Never>()
+    /// CompletionHandler of Api failure/ finished cases
     private lazy var requestCompletionHandler: (Subscribers.Completion<NetworkError>) -> Void = { [weak self] completion in
         self?.state.send(.loading(false))
         switch completion {
@@ -62,6 +69,7 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
     }
     
     //MARK: - Methods
+    /// Return zero state handler based page type
     func handlingZeroState() -> String {
         switch self.pageType.value {
         case .comments:
@@ -79,6 +87,7 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
     }
     
     //MARK: API Call
+    /// Get more details for the user data
     func loadUserData() {
         let responseHandler: ((UserModel) -> Void) = { [weak self] response in
             guard let self = self else { return }
@@ -91,6 +100,7 @@ class RepoDescriptionViewModel: RepoDescriptionViewModelProtocol {
             .store(in: &subscriptions)
     }
         
+    /// Get Followers/ Following response based page type
     func loadFollowersList() {
         let commentsResponseHandler: (([CommentModel]) -> Void) = { [weak self] response in
             guard let self = self else { return }

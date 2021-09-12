@@ -29,6 +29,7 @@ class LoadingVC: UIViewController {
         switchAppState()
     }
     //MARK: - Methods
+    /// Dependency injection of LoadingVC
     class func create() -> LoadingVC {
         let vc: LoadingVC = StoryBoardDesignSystem.StoryBoard.main.name.instantiateViewController(identifier: "\(LoadingVC.self)")
         return vc
