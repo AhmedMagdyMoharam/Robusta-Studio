@@ -10,7 +10,6 @@ import Foundation
 protocol CommentVMProtocol {
     var createdAt: String? { get }
     var body: String? { get }
-    var authorAssociation: String? { get }
     var user: UserVMProtocol? { get }
 }
 
@@ -34,9 +33,6 @@ class CommentVM: CommentVMProtocol {
     }
     var body: String? {
         comment?.body
-    }
-    var authorAssociation: String? {
-        comment?.authorAssociation
     }
     var user: UserVMProtocol? {
         UserVM(user: comment?.user)

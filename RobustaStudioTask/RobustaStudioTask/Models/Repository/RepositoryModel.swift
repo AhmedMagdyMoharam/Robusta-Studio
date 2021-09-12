@@ -9,9 +9,11 @@ import Foundation
 
 //MARK: - RepositoryModel
 class RepositoryModel: Codable {
-    let name, topicDescription, commentsURL, languagesURL, fullRepoName, url: String?
-    let topicPrivate, fork: Bool?
-    let owner: UserModel?
+    var name, topicDescription, commentsURL, languagesURL, fullRepoName, url: String?
+    var topicPrivate, fork: Bool?
+    var owner: UserModel?
+    
+    init() { }
     
     enum CodingKeys: String, CodingKey {
         case name, owner ,fork, url

@@ -9,12 +9,13 @@ import Foundation
 
 //MARK: - RepositoryModel
 class CommentModel: Codable {
-    let createdAt, body, authorAssociation: String?
-    let user: UserModel?
+    var createdAt, body: String?
+    var user: UserModel?
+    
+    init() {}
     
     enum CodingKeys: String, CodingKey {
         case user, body
         case createdAt = "created_at"
-        case authorAssociation = "author_association"
     }
 }

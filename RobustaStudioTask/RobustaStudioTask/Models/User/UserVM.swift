@@ -7,6 +7,12 @@
 
 import Foundation
 
+//MARK: - Enums
+enum OwnerType: String {
+    case user = "User"
+    case organization = "Organization"
+}
+
 //MARK: - OwnerVMProtocol
 protocol UserVMProtocol {
     var name: String? { get }

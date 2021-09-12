@@ -10,8 +10,10 @@ import Foundation
 // MARK: - OwnerModel
 class UserModel: Codable {
     
-    let login, avatarURL ,htmlURL ,followingURL, type, followersURL, name, company, createdAt, location, url, commentsURL: String?
-    let siteAdmin: Bool?
+    var login, avatarURL ,htmlURL ,followingURL, type, followersURL, name, company, createdAt, location, url, commentsURL: String?
+    var siteAdmin: Bool?
+    
+    init() {}
     
     enum CodingKeys: String, CodingKey {
         case login, type, name, company, url, location
